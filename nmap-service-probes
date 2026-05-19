@@ -112,3 +112,44 @@ match drawpile m|^..\0DRAWPILE 8 ([A-Z,]+)|s p/DrawPile/ v/0.8.4 - 0.8.5/ i/prot
 match drawpile m|^..\0DRAWPILE 9 ([A-Z,]+)|s p/DrawPile/ v/0.8.6/ i/protocol 9; flags: $1/ cpe:/a:calle_laakkonen:drawpile:0.8.6/
 match drawpile m|^..\0DRAWPILE 10 ([A-Z,]+)|s p/DrawPile/ v/0.9.0 - 0.9.1/ i/protocol 10; flags: $1/ cpe:/a:calle_laakkonen:drawpile:0.9/
 match drawpile m|^..\0DRAWPILE 11 ([A-Z,]+)|s p/DrawPile/ v/0.9.2 - 0.9.5/ i/protocol 11; flags: $1/ cpe:/a:calle_laakkonen:drawpile:0.9/
+
+
+match mpd m|^OK MPD ([\d.]+)\n$| p/Music Player Daemon/ v/$1/
+match mpich2 m|^([\d.]+) \d+\0{240,250}$| p/MPICH2/ v/$1/
+# lopster 1.2.0.1 on Linux 1.1
+match mserv m|^200 Mserv (\d[-.\w]+) \(c\) James Ponder [-\d]+ - Type: USER <username>\r\n\.\r\n| p/Mserv music server/ v/$1/
+
+match mudnames m|^MudNames ([\d.]+) - \(C\) 1997-2001 Ragnar Hojland Espinosa <ragnar@ragnar-hojland\.com>\n\r| p/MudNames/ v/$1/
+match munin m|^# munin node at ([-\w_.]+)\n$| p/Munin/ h/$1/ cpe:/a:munin-monitoring:munin/
+
+match multiplicity m|^MULTIPLICITYP$| p/Stardock Multiplicity KVM daemon/ o/Windows/ cpe:/o:microsoft:windows/a
+
+match mu-connect m|^\x7f\xba\xbe\xbf$| p/Webzen MU Online role-playing game connect/
+match mu-connect m|^\xc1\x04\x00\x01$| p/Webzen MU Online role-playing game connect/
+match mu-game m|^\x7f\xb2O\xbe\xbf\xad.\x8f\x8e\x8e\x8f\x88$|s p/Webzen MU Online role-playing game server/
+
+# The "^(?:\* [^\r\n]+\r\n)*?" construct on these matches is much faster
+# than just using the matches without an anchor.  -- Brandon
+match mupdate m|^(?:\* [^\r\n]+\r\n)*?\* OK MUPDATE \"([-.\w]+)\" \"Cyrus Murder\" \"v([-.\w]+)\" \"\(master\)\"\r\n| p/Cyrus Murder Master/ v/$2/ h/$1/ cpe:/a:cmu:cyrus_imap_server:$2/
+match mupdate m|^(?:\* [^\r\n]+\r\n)*?\* OK MUPDATE \"([-.\w]+)\" \"Cyrus Murder\" \"v([-.\w]+)\" \"mupdate://([-.\w]+)\"\r\n| p/Cyrus Murder Slave/ v/$2/ i/Master: $3/ h/$1/ cpe:/a:cmu:cyrus_imap_server:$2/
+
+match mwti-rpc m=^Welcome MWTI RPC Communication Server Version ([\w._-]+) \[(?:Administrator|SYSTEM)\]\r\n= p/MWTI RPC Communication Server/ v/$1/
+
+softmatch napster m|^1$|
+
+# Ncat --chat mode, since 4.85BETA4
+match ncat-chat m|^<announce> [\d.:a-f]+ is connected as <\w+>\.\n<announce> already connected: (.*?)\.\n| p/Ncat chat/ i/users: $1/
+
+match netop m|^\xd6\x81\x81\0\0\xf9\0\xf9\xee\xe3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0| p/NetOp Remote Control/
+
+match netrek m|^<>=======================================================================<>\n  Pl: Rank       Name             Login      Host name                Type\n| p/Netrek game server player information interface/
+
+# TRENDnet NetUSB - 4-byte-length-prefixed null-terminated strings
+# USB-over-network: https://www.trendnet.com/kb/kbp_viewquestion.asp?ToDo=view&questId=1350&catId=516
+match netusb m|^\0\0\0. connect success [\da-f]+ \n\0\0\0\0. NetUSB ([\w._-]+), 2\d\d\d, [\dA-F]+ \n\0\0\0\0\x0c AUTH ISOC\n\0\0\0\0| p/TRENDnet NetUSB/ v/$1/
+
+# Nping echo mode -- added in Nmap 5.36TEST1
+match nping-echo m|^\x01\x01\0\x18.{8}\0\0\0\0.{32}\0{16}.{32}$|s p/Nping echo/
+
+match nrpep m|^nrpep - ([\d.]+)\n$| p|NetSaint Remote Plugin Executor/Perl| v/$1/
+
