@@ -153,3 +153,30 @@ match nping-echo m|^\x01\x01\0\x18.{8}\0\0\0\0.{32}\0{16}.{32}$|s p/Nping echo/
 
 match nrpep m|^nrpep - ([\d.]+)\n$| p|NetSaint Remote Plugin Executor/Perl| v/$1/
 
+match 1c-server m|^S\xf5\xc6\x1a{| p/1C:Enterprise business management server/
+
+match 3cx-tunnel m|^\x04\0\xfb\xffLAPK| p/3CX Tunnel Protocol/
+
+match 4d-server m|^\0\0\0H\0\0\0\x02.[^\0]*\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0$|s p/4th Dimension database server/ cpe:/a:4d_sas:4d/
+
+match aastra-pbx m|^BUSY$| p|Aastra/Mitel 400-series PBX service port|
+match acap m|^\* ACAP \(IMPLEMENTATION \"CommuniGate Pro ACAP (\d[-.\w]+)\"\) | p/CommuniGate Pro ACAP server/ v/$1/ i/for mail client preference sharing/ cpe:/a:stalker:communigate_pro:$1/
+match acarsd m|^g\0\0\0\x1b\0\0\0\0\0\0\0acarsd\t([\w._-]+)\tAPI-([\w._-]+)\)\0\0\0\x06\x05\0\0\0\0\0\0<\?xml | p/acarsd/ v/$1/ i/API $2/ cpe:/a:acarsd:acarsd:$1/
+match acmp m|^ACMP Server Version ([\w._-]+)\r\n| p/Aagon ACMP Inventory/ v/$1/
+
+match apachemq m|^\0\0..\x01ActiveMQ\0\0\0.\x01\0\0.*\x0cProviderName\t\0\x08ActiveMQ.*\x0fPlatformDetails\t..JVM: (\d[^,]*), [^,]*, Oracle Corporation, OS: Linux, (\d\.[\d.]+)[^,]*, ([\w_-]+).*\x0fProviderVersion\t..(\d[\w._-]*)|s p/ActiveMQ OpenWire transport/ v/$4/ i/Java $1; arch: $3/ o/Linux $2/ cpe:/a:apache:activemq:$4/ cpe:/o:linux:linux_kernel:$2/a
+match apachemq m|^\0\0..\x01ActiveMQ\0\0\0.\x01\0\0.*\x0cProviderName\t\0\x08ActiveMQ.*\x0fPlatformDetails\t..Java\0.*\x0fProviderVersion\t..(\d[\w._-]*)|s p/ActiveMQ OpenWire transport/ v/$1/ cpe:/a:apache:activemq:$1/
+match apachemq m|^\0\0..\x01ActiveMQ\0\0\0.\x01\0\0.*\x0fPlatformDetails\t..Java\0.*\x0cProviderName\t\0\x08ActiveMQ.*\x0fProviderVersion\t..(\d[\w._-]*)|s p/ActiveMQ OpenWire transport/ v/$1/ cpe:/a:apache:activemq:$1/
+# softmatches to get submissions
+softmatch apachemq m|^\0\0..\x01ActiveMQ\0\0\0.\x01\0\0.*\x0fPlatform| p/ActiveMQ OpenWire transport/
+softmatch apachemq m|^\0\0..\x01ActiveMQ\0\0\0.\x01\0\0.*\x0fProvider| p/ActiveMQ OpenWire transport/
+# For those that don't provide explicit versions, some heuristics:
+# AMQ-8412
+match apachemq m|^\0\0..\x01ActiveMQ\0\0\0.\x01\0\0.*\x0cMaxFrameSize\x06| p/ActiveMQ OpenWire transport/ v/5.16.4 or later/
+match apachemq m|^\0\0..\x01ActiveMQ\0| p/ActiveMQ OpenWire transport/ v/5.16.3 or earlier/
+
+
+# Microsoft ActiveSync Version 3.7 Build 3083 (It's used for syncing
+# my ipaq it disappears when you remove the ipaq.)
+match activesync m|^.\0\x01\0[^\0]\0[^\0]\0[^\0]\0[^\0]\0[^\0]\0.*\0\0\0$|s p/Microsoft ActiveSync/ o/Windows/ cpe:/a:microsoft:activesync/ cpe:/o:microsoft:windows/a
+
