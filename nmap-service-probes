@@ -1,238 +1,195 @@
-match irr m|^%  No entries found for the selected source\(s\)\.\n$| p/Merit Internet Routing Registry whoisd/
+match automate m|^\x031[\w+/]{54}nXAvc01KqG\x03\r\n$| p/AutoMate Task Service/ v/9/
 
-match wincomm m|^128 System Incompatible Windows Communicator client or server version\r\n128 System Incompatible Windows Communicator client or server version\r\n| p/Windows Communicator/
-match zebedee m|^\x02\x01$| p/Zebedee encrypted tunnel/
+# using line numbers to distinguish versions
+# for f in *.tar.gz; do echo -en $f"\t"; tar --wildcards -xOf $f '*/amavisd' | grep -n -e '__DATA__' -e "Missing 'request'" | grep -B1 req | awk -F: '{a=$1-a}END{print a}'; done
+# Avoiding pre- and rc- versions for brevity
+match am-pdp m|^setreply=450 4\.5\.0 Failure:%20Missing%20'request'%20field%20at%20\(eval%20\d+\)%20line%20(?:187),%20<GEN\d+>%20line%20\d\.\r\n| p/amavisd-new AM.PDP/ v/2.3.0 - 2.3.2/ cpe:/a:ijs:amavisd_new:2.3/
+match am-pdp m|^setreply=450 4\.5\.0 Failure:%20Missing%20'request'%20field%20at%20\(eval%20\d+\)%20line%20(?:190),%20<GEN\d+>%20line%20\d\.\r\n| p/amavisd-new AM.PDP/ v/2.3.3/ cpe:/a:ijs:amavisd_new:2.3.3/
+match am-pdp m|^setreply=450 4\.5\.0 Failure:%20Missing%20'request'%20field%20at%20\(eval%20\d+\)%20line%20(?:195),%20<GEN\d+>%20line%20\d\.\r\n| p/amavisd-new AM.PDP/ v/2.4.0/ cpe:/a:ijs:amavisd_new:2.4.0/
+match am-pdp m|^setreply=450 4\.5\.0 Failure:%20Missing%20'request'%20field%20at%20\(eval%20\d+\)%20line%20(?:207),%20<GEN\d+>%20line%20\d\.\r\n| p/amavisd-new AM.PDP/ v/2.4.1 - 2.4.2/ cpe:/a:ijs:amavisd_new:2.4/
+match am-pdp m|^setreply=450 4\.5\.0 Failure:%20Missing%20'request'%20field%20at%20\(eval%20\d+\)%20line%20(?:208),%20<GEN\d+>%20line%20\d\.\r\n| p/amavisd-new AM.PDP/ v/2.4.3 - 2.4.4/ cpe:/a:ijs:amavisd_new:2.4/
+match am-pdp m|^setreply=450 4\.5\.0 Failure:%20Missing%20'request'%20field%20at%20\(eval%20\d+\)%20line%20(?:210),%20<GEN\d+>%20line%20\d\.\r\n| p/amavisd-new AM.PDP/ v/2.4.5/ cpe:/a:ijs:amavisd_new:2.4.5/
+match am-pdp m|^setreply=450 4\.5\.0 Failure:%20Missing%20'request'%20field%20at%20\(eval%20\d+\)%20line%20(?:214),%20<GEN\d+>%20line%20\d\.\r\n| p/amavisd-new AM.PDP/ v/2.5.0/ cpe:/a:ijs:amavisd_new:2.5.0/
+match am-pdp m|^setreply=450 4\.5\.0 Failure:%20Missing%20'request'%20field%20at%20\(eval%20\d+\)%20line%20(?:217),%20<GEN\d+>%20line%20\d\.\r\n| p/amavisd-new AM.PDP/ v/2.5.1 - 2.5.4/ cpe:/a:ijs:amavisd_new:2.5/
+match am-pdp m|^setreply=450 4\.5\.0 Failure:%20Missing%20'request'%20field%20at%20\(eval%20\d+\)%20line%20(?:230),%20<GEN\d+>%20line%20\d\.\r\n| p/amavisd-new AM.PDP/ v/2.6.0/ cpe:/a:ijs:amavisd_new:2.6.0/
+match am-pdp m|^setreply=450 4\.5\.0 Failure:%20Missing%20'request'%20field%20at%20\(eval%20\d+\)%20line%20(?:185),%20<GEN\d+>%20line%20\d\.\r\n| p/amavisd-new AM.PDP/ v/2.7.0 - 2.7.2/ cpe:/a:ijs:amavisd_new:2.7/
+match am-pdp m|^setreply=450 4\.5\.0 Failure:%20Missing%20'request'%20field%20at%20\(eval%20\d+\)%20line%20(?:188),%20<GEN\d+>%20line%20\d\.\r\n| p/amavisd-new AM.PDP/ v/2.8.0/ cpe:/a:ijs:amavisd_new:2.8.0/
+match am-pdp m|^setreply=450 4\.5\.0 Failure:%20Missing%20'request'%20field%20at%20\(eval%20\d+\)%20line%20(?:193),%20<GEN\d+>%20line%20\d\.\r\n| p/amavisd-new AM.PDP/ v/2.8.1/ cpe:/a:ijs:amavisd_new:2.8.1/
+match am-pdp m|^setreply=450 4\.5\.0 Failure:%20Missing%20'request'%20field%20at%20\(eval%20\d+\)%20line%20(?:196),%20<GEN\d+>%20line%20\d\.\r\n| p/amavisd-new AM.PDP/ v/2.9.0 - 2.10.1/ cpe:/a:ijs:amavisd_new:2/
+match am-pdp m|^setreply=450 4\.5\.0 Failure:%20Missing%20'request'%20field%20at%20\(eval%20\d+\)%20line%20(?:197),%20<GEN\d+>%20line%20\d\.\r\n| p/amavisd-new AM.PDP/ v/2.11.0 - 2.11.1/ cpe:/a:ijs:amavisd_new:2.11/
 
-match bmc-perform-service m|^SDPACK$| p/BMC Perform Service Daemon/
-# Grisoft AVG antivirus server (distributing virus database updates)
+match amqp m|^AMQP\x00\x00\x09\x01$| p/Advanced Message Queue Protocol/
+match amqp m|^AMQP\x01\x01\x00\x0a$| p/Advanced Message Queue Protocol/
 
-match nntp m|^200 Coruscant BBS News \(Synchronet NNTP Service v(\d[-.\w ]+)\)\r\n| p/Synchronet NNTP Service/ v/$1/ cpe:/a:rob_swindell:synchronet:$1/
+match as2 m|^HTTP/1\.1 404 Not Found\r\nServer: Cleo LexiCom/([\w._-]+) \(([^)]+)\)\r\n| p/Cleo LexiCom AS2/ v/$1/ o/$2/
 
-match telnet m|^\xff\xfb\x01\n\rSSH service name not present in rcvd msg\n\rSSH Session task 0x\w+: Version Exchange Failed\n\r\n\r\n\rSSH service name not present in rcvd msg\n\r| p/Cisco Aironet 350-series WAP telnetd/ d/WAP/ cpe:/a:cisco:telnet/ cpe:/o:cisco:aironet_350/
-match telnet m|^\xff\xfe\"\xff\xfb\x01\xff\xfb\x03User : \r\n\r?SpeedTouch \(([-\w]+)\)\r\n\r?Password : Invalid Password\r\n\r?Closing connection\r\n| p/Alcatel SpeedTouch DSL router/ i/MAC $1/ d/router/
-match telnet m|^\xff\xfe\x01\xff\xfd\x03\xff\xfd\x18\xff\xfd\x1f\xff\xfb\x03\xff\xfb\x01\r\nAccount Name: \r\nPassword: \r\nThis copy of the Ataman Telnetd Server is registered as licensed to:\r\n\t(.+)\r\n\r\nLogin failed: unknown user name, password or privilege incorrect\.\r\n| p/Ataman telnetd/ i/Registerd to $1/ o/Windows/ cpe:/o:microsoft:windows/a
-match telnet m|^Password:\xff\xfb\x01\n\rTry again, you polio:\n\n\rTry again, you polio:\n| p/VLC Player telnetd/ cpe:/a:videolan:vlc_media_player/
-match telnet m=^\xff\xfb\x01\xff\xfb\x03\r\n\r\n\r\n +-+\r\n +\| Cyclades-PR4000: CyROS  V_([\d.]+)  \(.*\)     \|\r\n= p/Cyclades PR4000 router telnetd/ v/$1/ d/router/
-# Billion 741GE or D-Link DSL2-300G
-match telnet m|^\xff\xfb\x01\xff\xfb\x03\r\n\r\nLogin: \r\n\r\nYou must supply a username\r\n\r\nLogin: \r\n\r\nYou must supply a username\r\n\r\nLogin: | p/Billion or D-Link ADSL router telnetd/ d/router/
-# Not sure if this is really a telnet service but many people reported it running on port23:
-match telnet m|^\xff\xfb\x01$| p/SMC SMC2870W Wireless Ethernet Bridge/ d/bridge/
-match telnet m|^\r\n\r\nThis is a FirstClass system, from Open Text Corporation\.\r\n\r\n\r\nFirstClass is an e-mail and conferencing system with a graphical user interface\.\r\n\r\n\r\nThe Command Line Interface is not available on this sy| p/FirstClass telnetd/ i/CLI disabled/ cpe:/a:opentext:firstclass/
-match telnet m|^\xff\xfb\x01\r\nPassword:\r\nLogged in as guest\r\n| p/Linkstar Comsat router telnetd/ d/router/
-match telnet m|^\xff\xfb\x01Login: \r\nLogin: \r\nLogin: | p/Lingo VoIP config telnetd/ d/VoIP adapter/
-match telnet m|^\xff\xfb\x01\xff\xfb\x03\xff\xfd\x18\xff\xfd\x1f\r\nuser: \r\npassword: \r\n\r\nuser: | p/KIRK Wireless Server 600 telnetd/ d/VoIP adapter/
-match telnet m|^\xff\xfb\x01\n\r-> \n\r-> \n\r-> | p/Coresma Phazer Docsis USB cable modem telnetd/ d/broadband router/
-match telnet m|^bad password\r\n$| p/Cybersitter CLI/
-match telnet m|^\xff\xfd\"\xff\xfb\x01SSE version ([\d.]+)\r\nCopyright [\d, ]+ by Motorola\r\nUsername:| p/Motorola Canopy WAP telnetd/ i/SSE $1/ d/telecom-misc/
-match telnet m|^\xff\xfb\x01\xff\xfb\x03\r\n\r\n\[ORiNOCO-AP-[-\w]+\]> Please enter password: \r\nIncorrect Password\r\n\r\n\[ORiNOCO-AP-[-\w]+\]> Please enter password: \r\n| p/ORiNOCO wireless router telnetd/ d/router/
-match telnet m|^\xff\xfb\x01Password\? \r\n500 Configuration error\. Disconnecting!\n| p/Tru64 UNIX gated/ o/Tru64 UNIX/ cpe:/o:compaq:tru64/a
-match telnet m|^\xff\xfb\x01\r\n\r\nlogin: \r\n\r\n\r\r\npassword: $| p/Welltech Wellgate VoIP adapter telnetd/ d/VoIP adapter/
-match telnet m|^\xff\xfb\x03\xff\xfb\x01\xff\xfb\x1f\xff\xfd\x18Avocent CPS-810 S/W Version ([\d.]+)\r\nUsername: \r\nPassword: \r\nInvalid Login\r\nUsername: | p/Avocent CPS-810 serial port server telnetd/ v/$1/ d/specialized/ cpe:/h:avocent:cps-810/
+# Kerio PF 4.0.11 unregistered - Service process (Port 44xxx?) on MS W2K SP4+
+match keriopfservice m|^(HTTP/1\.0) 200 OK\r\nServer: Kerio Personal Firewall\r\n| p/Kerio PF 4 Service/ i/$1/
 
-match telnet m|^\xff\xfb\x01\xff\xfb\x03\nGestetner Maintenance Shell\.   \n\rUser access verification\.\n\rPassword:| p/Gestetner DSm622 maintenance telnetd/ d/printer/
-match telnet m|^\xff\xfb\x01\xff\xfb\x03\nNRG Maintenance Shell\.   \n\rUser access verification\.\n\rPassword:| p/NRG maintenance telnetd/ d/printer/
-match telnet m|^\xff\xfb\x01\xff\xfb\x03\nNRG Maintenance Shell\.   \n\rUser access verification\.\n\rlogin:| p/NRG maintenance telnetd/ d/printer/
-match telnet m|^\xff\xfb\x01\xff\xfb\x03\nRICOH Maintenance Shell\.   \n\rUser access verification\.\n\r| p/Ricoh maintenance telnetd/ d/printer/
-match telnet m|^\xff\xfb\x01\xff\xfb\x03\nRICOH Maintenance Shell\.   ([\w:]+)\n\rUser access verification\.\n\rPassword:| p/Ricoh maintenance telnetd/ i/MAC $1/ d/print server/
-match telnet m|^\xff\xfb\x01\xff\xfb\x03\nSAVIN Maintenance Shell\.   \n\rUser access verification\.\n\r| p/SAVIN printer telnetd/ d/printer/
-match telnet m|^\xff\xfb\x01\xff\xfb\x03\nTOSHIBA Maintenance Shell\.   \n\rUser access verification\.\n\rlogin:| p/Toshiba print server telnetd/ d/print server/
+match backupexec-remote m|^\xf6\xff\xff\xff\x10\0\0\0\0\0\0\0\0\0\0\0$| p/Veritas Backup Exec Remote Agent/ cpe:/a:symantec:veritas_backup_exec/
 
-match telnet m|^\r\nPress return:\*\*\*\*\r\nEnter Password:| p/IPSentry telnetd/ o/Windows/ cpe:/o:microsoft:windows/a
-match telnet m|^\xff\xfb\x01\xff\xfb\x03\xff\xfd\x03\r\0\n\r\0\n\r\0\n\r\0\n- NetQue AppleTalk/NetWare/TCP/LAT Printer Server| p/EMULEX NetQue print server telnetd/ d/print server/
-match telnet m|^\r\n\r\nUser Access Verification\r\n\r\nPassword: \r\nPassword: \r\nPassword: \r\n% Bad passwords\r\n| p/Cisco telnetd/ d/router/ o/IOS/ cpe:/a:cisco:telnet/ cpe:/o:cisco:ios/a
-match telnet m|^\xff\xfb\x01\xff\xfe\"\xff\xfe\0\xff\xfd\x03\xff\xfd\x18\xff\xfd\x1f\r\n\r\n\r\nlogin: | p/freeSSHd telnetd/ o/Windows/ cpe:/a:freesshd:freesshd/ cpe:/o:microsoft:windows/a
-match telnet m|^\xff\xfb\x01\x1b\[7l\x1b\[\?1l\x1b\[0m\x1b\[2JUsername: \x1b\[7l\x1b| p/CyberSwitching Dualcom power device rabbit 2000 embedded telnetd/ d/power-device/
-match telnet m|^\xff\xfd\x01\xff\xfd\x1f\xff\xfd!\xff\xfb\x01\xff\xfb\x03\r\r\nRead /disclaimer\.txt and have fun with yadi on your Nokia D-BOX2 - Kernel ([-\w_.]+) \(| p/Nokia D-BOX2 telnetd/ i/Linux $1/ d/media device/ o/Linux/ cpe:/o:linux:linux_kernel:$1/a
-match telnet m|^\xff\xfd\x01\xff\xfd\x1f\xff\xfd!\xff\xfb\x01\xff\xfb\x03\r\r\nPhilips D-BOX2 - Kernel ([\w._-]+) \(| p/Philips D-BOX2 telnetd/ i/Linux $1/ d/media device/ o/Linux/ cpe:/o:linux:linux_kernel:$1/a
-match telnet m|^\xff\xfb\x01\n\rLogin: \n\r\n\r\n\rLogin: \n\rLogin: | p/Nortel Extranet Contivity Secure IP Services telnetd/ d/security-misc/ cpe:/h:nortel:contivity/
-match telnet m|^\xff\xfd\x01\xff\xfd\x1f\xff\xfd!\xff\xfb\x01\xff\xfb\x03\r\r\n\r\n\rlogin: \r\n\r\nLogin incorrect\r\n\r\nlogin: | p/Cisco Intrusion Prevention System telnetd/ d/security-misc/ o/IOS/ cpe:/a:cisco:telnet/ cpe:/o:cisco:ios/a
-match telnet m|^ 105 Access denied\.\r\n 105 Access denied\.\r\n 105 Access denied\.\r\n 105 Access denied\.\r\n| p/ShroudBNC telnet config/
-match telnet m|^User Name: \r\r\nPassword: \r\r\nRemote MAC address: | p/Airaya WAP diagnostics telnetd/ d/WAP/
-match telnet m|^\xff\xfb\x01\r\nAP11G login: \r\n\r\nPassword: | p/OfficeConnect AP11G WAP telnetd/ d/WAP/
-match telnet m|^\xff\xfb\x01\xff\xfb\x03Welcome to the Windows CE Telnet service on ([-\w_.]+)\r\n\r\nlogin: \n\r\nPassword:| p/Windows CE telnetd/ o/Windows CE/ h/$1/ cpe:/o:microsoft:windows_ce/a
-match telnet m|^\xff\xfb\x01\xff\xfd\x03\xff\xfb\x03\x1b\[2J\x1b\[H \n\r\0\x1b\[H\x1b\[JPASSaPORT CS-(\d+)  SW V([-\w_.]+) , HW V([-\w_.]+)\r\n\r\n| p/RADLINX PASSaPORT CS terminal server telnetd/ i/$1 ports; SW $2; HW $3/ d/terminal server/
-match telnet m|^\xff\xfb\x01\r\nlogin: \r\npassword: \r\nLogin incorrect!\r\n$| p/Netgear GS108T switch telnetd/ d/switch/ cpe:/h:netgear:gs108t/a
-match telnet m|^\xff\xfb\x01\xff\xfb\x03\xff\xfb\x1fError2 negotiated with client \d+ and get 1 char is a a d\. \n\r\n\r\*+\n\r\*\* +\*\*\n\r\*\* IP Phone firmware +V([\w._-]+) | p/Thomson VoIP phone telnetd/ v/$1/ d/VoIP phone/
-match telnet m|^\xff\xfb\x03\xff\xfb\x01\xff\xfb\x01\xff\xfb\x03\r\nLogin: \r\r\nPassword: \r\r\n\r\r\nLogin failed\r\r\n\r\r\nLogin: | p/Siemens SANTIS WAP telnetd/ d/WAP/
-match telnet m|^Password: \xff\xfb\x01\r\nWrong password\.\r\nPassword: \r\nWrong password\.\r\nPassword: | p/VLC media player telnetd/ cpe:/a:videolan:vlc_media_player/
-match telnet m|^\xff\xfb\x01\xff\xfd\x01\xff\xfe\x01\xff\xfd WxGoos-(\d+) v([\w._-]+) | p/WxGoos-$1 Climate Monitor telnetd/ v/$2/ d/specialized/
-match telnet m|^\xff\xfd\0\xff\xfd\x03\xff\xfb\0\xff\xfb\x03\xff\xfb\x01\x03\x04\r\nPassword: \r\n\n\rComtrol DeviceMaster RTS   ModelID: (\d+) \n\r\rNS-Link ([\w._-]+) \n\rBuilt: .*\n\rIP Addr: [\d.]+  Mask: [\d.]+ Gateway: [\d.]+ \n\rMAC Addr: ([\w ]+) \n\r\n\r\r\n\rdm> \r\nInvalid Command\r\n\rdm>| p/Comtrol DeviceMaster RTS ethernet to serial telnetd/ i/Model $1; NS-Link $2; MAC $3/ d/specialized/
-match telnet m|^\xff\xfb\x01\xff\xfb\x03\xff\xfd\x01\xff\xfd\x18\r\0\r\nPassword: \r\nPassword incorrect\r\n| p/Sun StorEdge 3511 telnetd/ d/storage-misc/
-match telnet m|^\xff\xfd\x01\xff\xfd!\xff\xfb\x01\xff\xfb\x03AH4222\r\nLogin: \r\n\r\nPassword: | p/Club-Internet telnetd/ d/broadband router/
-match telnet m|^\xff\xfe\x01\xff\xfb\x01\xff\xfc\"\xff\xfd\x1flogin: \r\nlogin: \r\nlogin: | p/GigaVUE-420 switch telnetd/ d/switch/
-match telnet m|^\xff\xfb\x03\xff\xfb\x01\xff\xfe\x01-> \n\r-> \n\r-> | p/ser2net telnetd/
-match telnet m|^\x1b\[24;1HUsername: \x1b\[\?25h\x1b\[24;1H\x1b\[\?25h\x1b\[24;11H\x1b\[24;11H\x1b\[\?25h\x1b\[24;11H\x1b\[24;1H\r\n\r\x1b\[\?25h\x1b\[24;11H\xff\xfd\x18\xff\xfb\x01\x1b\[2J\x1b\[\?7l\x1b\[3;23r\x1b\[\?6l\x1b\[1;1H\x1b\[\?25l\x1b\[1;1HProCurve (\w+) Switch (\w+)\r\n\rSoftware revision ([\w.]+)\r\n| p/HP ProCurve Switch $2 telnetd/ v/$3/ i/JetDirect $1/ d/switch/ cpe:/h:hp:procurve_switch_$2/ cpe:/o:hp:procurve_switch_software:$3/
-match telnet m|^\xff\xfd\x18\xff\xfb\x01\x1b\[2J\x1b\[\?7l\x1b\[4;23r\x1b\[\?6l\x1b\[1;1H\x1b\[\?25l\x1b\[1;1HCopyright \(C\) 1991-\d\d\d\d Hewlett-Packard Co\..*\x1b\[1;1HHP ProCurve Switch ([\w-]+)\x1b|s p/HP ProCurve Switch $1 telnetd/ d/switch/ cpe:/h:hp:procurve_switch_$1/
-match telnet m|^\xff\xfb\x01\r\nConfiguration Login: \r\n\r\n\r\nConfiguration Login: \r\nConfiguration Login: $| p/HP E1200 storage telnetd/ d/storage-misc/
-match telnet m|^\r\nEnter Password: \r\nInvalid Password\.\r\nEnter Password: \r\nInvalid Password\.\r\nEnter Password: | p/WPI Network Power Switch (remote reboot) telnetd/ d/remote management/
-match telnet m|^\xff\xfb\x01\xff\xfb\x03\r\nWelcome to IFBD-HE05/06 TELNET Utility\.\r\nCopyright\(C\) 2005 Star Micronics co\., Ltd\.\r\n\r\n<< Connected Device >>\r\n    Device Model: (\w+) \(STR_T-001\)\r\n    NIC Product : IFBD-HE05/06\r\n    MAC Address : ([0-9A-F:]+)\r\n\r\n\r \r\nlogin: \r\n| p/Star Micronics $1 printer telnetd/ i/MAC address: $2/ d/printer/ cpe:/h:starmicronics:$1/a
-match telnet m|^\xff\xfb\x01Username: \n\rPassword: \n\rUsername: | p/3Com 8760 WAP telnetd/ d/WAP/ cpe:/h:3com:8760/a
-match telnet m|^\xff\xfb\x01\xff\xfb\x03\nLANIER Maintenance Shell\.   \n\rUser access verification\.\n\rlogin:| p/Ricoh Aficio printer telnetd/ d/printer/
-match telnet m|^\xff\xfb\x01\r\nUser Name : \r\nUser Name : \r\nUser Name : | p/APC AP9630 network management telnetd/ d/power-device/
-match telnet m|^\xff\xfb\x01\xff\xfb\x03\r\n\r\nWelcome to VIP-X ([\w._-]+) from [\w._-]+\r\nTLS invalid record length\r\n\r\n\r\n\r\ninvalid username\r\n\r\nTLS version 0300 not supported\r\nenter username  -> | p/Bosch VIP X1 video encoder telnetd/ d/webcam/ h/$1/
-match telnet m|^\r\nUser ID:Password:\r\nUser ID:| p/NEC SL-series debug terminal/ d/VoIP phone/
-match telnet m|^Commands: \n\t\[\x1b\[1;32m:d\x1b\[0m\]isable \[ category \x7c module \x7c all \]\n\t\[\x1b\[1;32m:e\x1b\[0m\]nable \[ category \x7c module \x7c all \]\n\t\[\x1b\[1;32m:s\x1b\[0m\]tatus\n\t\[\x1b\[1;32m:h\x1b\[0m\]elp\n\t\[\x1b\[1;32m:q\x1b\[0m\]uit\n\x1b\[1;31m\[E\]\[EncoderSrv\] /home/leonwang/platform/([\w._-]+)/Application_IPCAM/| p/Climax IP camera text UI/ i/model: $1/ cpe:/h:climax_technology:$1/
-match telnet m|^\xff\xfb\x01\xff\xfb\x01Connected to EPSON Network Image Express !!!\r\n\r\nPassword: \r\n\r\nLogin successful \r\n| p/Epson Network Image Express telnetd/ i/no password/
-match telnet m|^\xff\xfb\x01\xff\xfb\x01Connected to EPSON Network Image Express !!!\r\n\r\nPassword: \r\n| p/Epson Network Image Express telnetd/
+match backdoor m|^:[-\w_.]+ 451 GET :\r\n| p/**BACKDOOR**/ o/Windows/ cpe:/o:microsoft:windows/a
+match backdoor m|^<HTML>\n<HEAD>\n<TITLE>Directory /</TITLE>\n<BASE HREF=\"file:/\">\n</HEAD>\n<BODY>\n<H1>Directory listing of /</H1>| p/No-auth shell/ i/**BACKDOOR**/ o/Unix/
 
-match transbase m|^\0\0\+\x04\0\0\0@TransBase Multiplexer error report:\nIllegal request| p/Transbase Database/
+match banner-ivu m|^ERROR 10101_GROUP_NOT_FOUND\r\n| p/Banner Engineering iVu Command Channel/ d/specialized/
 
-match tsd m|^unknown command: \.  Try `help'\.\nunknown command: \.  Try `help'\.\n| p/OpenTSDB TSD/ i/also http/ cpe:/a:opentsdb:opentsdb/
+match beep m|^RPY \d \d \. \d \d+\r\nContent-Type: application/beep\+xml\r\n\r\n<greeting><profile uri='http://xml\.resource\.org/profiles/NULL/WIOServerProfile' /><profile uri='http://iana\.org/beep/TLS' /><profile uri='http://xml\.resource\.org/profiles/NULL/ChatServerProfile' /></greeting>END\r\n| p/Blackboard WebCT chat server/
 
-match tsdns m|^[\d.]+:\$PORT$| p/TeamSpeak domain name server/
+match bentley-projectwise m|^ACKNOSEC$| p/Bentley Systems ProjectWise/
 
-# MiniUPnP
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: Tomato UPnP/([\w.]+) MiniUPnPd/([\w.]+)\r\n|s p/MiniUPnP/ v/$2/ i/Tomato firmware; UPnP $1/ o/Linux/ cpe:/a:miniupnp_project:miniupnpd:$2/a cpe:/o:linux:linux_kernel/a
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: UPnP/Tomato ([\d.-]+) ([-\w_ ]+) UPnP/([\d.]+) MiniUPnPd/([\d.]+)\r\n|s p/MiniUPnP/ v/$4/ i/Tomato $1 $2 firmware; UPnP $3/ o/Linux/ cpe:/a:miniupnp_project:miniupnpd:$4/a cpe:/o:linux:linux_kernel/a
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: (RT-\w+) UPnP/([\w.]+) MiniUPnPd/([\w.]+)\r\n|s p/MiniUPnP/ v/$3/ i/Asus $1 WAP; UPnP $2/ d/WAP/ cpe:/a:miniupnp_project:miniupnpd:$3/a cpe:/h:asus:$1/a
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: AsusWRT/([\d.]+) UPnP/([\w.]+) MiniUPnPd/([\w.]+)\r\n|s p/MiniUPnP/ v/$3/ i/AsusWRT $1; UPnP $2/ d/WAP/ cpe:/a:miniupnp_project:miniupnpd:$3/a cpe:/o:asus:asuswrt:$1/
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: DrayTek/Vigor([\w._-]+) UPnP/([\w.]+) miniupnpd/([\w.]+)\r\n|s p/MiniUPnP/ v/$3/ i/DrayTek Vigor $1 router; UPnP $2/ d/broadband router/ cpe:/a:miniupnp_project:miniupnpd:$3/a cpe:/h:draytek:vigor_$1/a
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: Green Packet WiMax/([\w._-]+) UPnP/([\w.]+) miniupnpd/([\w.]+)\r\n|s p/MiniUPnP/ v/$3/ i/Green Packet WiMax $1 router; UPnP $2/ d/broadband router/ cpe:/a:miniupnp_project:miniupnpd:$3/a
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: ZTE/1.0 UPnP/([\w.]+) miniupnpd/([\w.]+)\r\n|s p/MiniUPnP/ v/$2/ i/ZTE broadband router; UPnP $1/ d/broadband router/ cpe:/a:miniupnp_project:miniupnpd:$2/a
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: OpenWRT/kamikaze UPnP/([\w._-]+) MiniUPnPd/([\w._-]+)\r\n|s p/MiniUPnP/ v/$2/ i/OpenWrt Kamikaze; UPnP $1/ d/WAP/ o/Linux/ cpe:/a:miniupnp_project:miniupnpd:$2/a cpe:/o:linux:linux_kernel/a
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: OpenWRT/OpenWRT/Backfire__(r\d+)_ UPnP/([\w._-]+) MiniUPnPd/([\w._-]+)\r\n|s p/MiniUPnP/ v/$3/ i/OpenWrt Backfire $1; UPnP $2/ d/WAP/ o/Linux/ cpe:/a:miniupnp_project:miniupnpd:$3/a cpe:/o:linux:linux_kernel/a
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: OpenWRT/OpenWRT/Backfire__unknown_ UPnP/([\w._-]+) MiniUPnPd/([\w._-]+)\r\n|s p/MiniUPnP/ v/$2/ i/OpenWrt Backfire; UPnP $1/ d/WAP/ o/Linux/ cpe:/a:miniupnp_project:miniupnpd:$2/a cpe:/o:linux:linux_kernel/a
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: OpenWRT/OpenW[Rr][Tt]/Attitude_Adjustment__(r\d+)_ UPnP/([\w._-]+) MiniUPnPd/([\w._-]+)\r\n|s p/MiniUPnP/ v/$3/ i/OpenWrt Attitude Adjustment $1; UPnP $2/ d/WAP/ o/Linux/ cpe:/a:miniupnp_project:miniupnpd:$3/a cpe:/o:linux:linux_kernel/a
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: OpenWRT/OpenWrt/Barrier_Breaker__(r\d+)_ UPnP/([\w._-]+) MiniUPnPd/([\w._-]+)\r\n|s p/MiniUPnP/ v/$3/ i/OpenWrt Barrier Breaker $1; UPnP $2/ d/WAP/ o/Linux/ cpe:/a:miniupnp_project:miniupnpd:$3/a cpe:/o:linux:linux_kernel/a
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: OpenWRT/OpenWrt/Chaos_Calmer__(r\d+)_ UPnP/([\w._-]+) MiniUPnPd/([\w._-]+)\r\n|s p/MiniUPnP/ v/$3/ i/OpenWrt Chaos Calmer $1; UPnP $2/ d/WAP/ o/Linux/ cpe:/a:miniupnp_project:miniupnpd:$3/a cpe:/o:linux:linux_kernel/a
-# Lots of devices, all sorts
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: FedoraCore/(\d+) UPnP/([\w._-]+) MiniUPnPd/([\w._-]+)\r\n|s p/MiniUPnP/ v/$3/ i/Fedora Core $1; UPnP $2/ cpe:/a:miniupnp_project:miniupnpd:$3/a cpe:/o:fedoraproject:fedora_core:$1/
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: Netgear/[\w._-]+ UPnP/([\w._-]+) miniupnpd/([\w._-]+)\r\n|s p/MiniUPnP/ v/$2/ i/Netgear DG834G or WNDR3300 WAP; UPnP $1/ d/WAP/ cpe:/a:miniupnp_project:miniupnpd:$2/a cpe:/h:netgear:dg834g/ cpe:/h:netgear:wndr3300/
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: Arris/[\w._-]+ UPnP/([\w._-]+) miniupnpd/([\w._-]+)\r\n|s p/MiniUPnP/ v/$2/ i/Arris TG862G WAP; UPnP $1/ d/WAP/ cpe:/a:miniupnp_project:miniupnpd:$2/a cpe:/h:arris:tg862g/a
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: neufbox/neufbox UPnP/([\w._-]+) MiniUPnPd/([\w._-]+)\r\n\r\n|s p/MiniUPnP/ v/$2/ i/Neufbox; UPnP $1/ d/broadband router/ cpe:/a:miniupnp_project:miniupnpd:$2/a
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: ASUSTeK UPnP/([\w._-]+) MiniUPnPd/([\w._-]+)\r\n\r\n|s p/MiniUPnP/ v/$2/ i/Asus; UPnP $1/ d/broadband router/ cpe:/a:miniupnp_project:miniupnpd:$2/a
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: Debian/([\w.]+) UPnP/([\w._-]+) MiniUPnPd/([\w._-]+)\r\n|s p/MiniUPnP/ v/$3/ i/Debian $1; UPnP $2/ cpe:/a:miniupnp_project:miniupnpd:$3/a cpe:/o:debian:debian_linux:$1/
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: Debian/([\w.]+) UPnP/([\w._-]+) miniupnpd/([\w._-]+)\r\n|s p/MiniUPnP/ v/$3/ i/Debian $1; UPnP $2/ cpe:/a:miniupnp_project:miniupnpd:$3/a cpe:/o:debian:debian_linux:$1/
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: Tenda UPnP/([\w._-]+) miniupnpd/([\w._-]+)\r\n|s p/MiniUPnP/ v/$2/ i/Tenda broadband router; UPnP $1/ d/broadband router/ cpe:/a:miniupnp_project:miniupnpd:$2/a
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: Ubuntu/([\w._-]+) UPnP/([\w._-]+) miniupnpd/([\w._-]+)\r\n|s p/MiniUPnP/ v/$3/ i/Ubuntu $1; UPnP $2/ o/Linux/ cpe:/a:miniupnp_project:miniupnpd:$3/a cpe:/o:canonical:ubuntu_linux:$1/ cpe:/o:linux:linux_kernel/a
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: Compal Broadband Networks, Inc/Linux/(\d[\w._-]+) UPnP/([\d.]+) MiniUPnPd/([\d.]+)\r\n|s p/MiniUPnP/ v/$3/ i/Compal Broadband Networks; UPnP $2/ o/Linux $1/ cpe:/a:miniupnp_project:miniupnpd:$3/a cpe:/o:linux:linux_kernel:$1/a
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: Linux/(([234]\.[\d.]+)[\w._-]+) UPnP/([\w._-]+) [Mm]ini[Uu][Pp]n[Pp]d/([\w._-]+)\r\n|s p/MiniUPnP/ v/$4/ i/Linux $1; UPnP $3/ o/Linux/ cpe:/a:miniupnp_project:miniupnpd:$4/a cpe:/o:linux:linux_kernel:$2/
-match upnp m|^ 501 Not Implemented\r\nContent-Type: text/html\r\nConnection: close\r\nContent-Length: \d+\r\nServer: Linux/BHR4 UPnP/([\d.]+) MiniUPnPd/([\d.]+)\r\n| p/MiniUPnP/ v/$2/ i/Verizon FiOS BHR4 router; UPnP $1/ d/broadband router/ cpe:/a:miniupnp_project:miniupnpd:$2/a cpe:/h:verizon:bhr4/
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: SmoothWall Express/([\d.]+) UPnP/([\d.]+) MiniUPnPd/([\d.]+)\r\n|s p/MiniUPnP/ v/$3/ i/SmoothWall Express $1; UPnP $2/ d/firewall/ cpe:/a:miniupnp_project:miniupnpd:$3/a cpe:/o:smoothwall:smoothwall:$1/
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: MF60/([\d.]+) UPnP/([\d.]+) miniupnpd/([\d.]+)\r\n|s p/MiniUPnP/ v/$3/ i/ZTE MF60 $1; UPnP $2/ cpe:/a:miniupnp_project:miniupnpd:$3/a cpe:/h:zte:mf60/
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: UPnP/([\w._-]+) MiniUPnPd/([\w._-]+)\r\n|s p/MiniUPnP/ v/$2/ i/UPnP $1/ cpe:/a:miniupnp_project:miniupnpd:$2/a
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: UPnP/([\w._-]+) MiniUPnPd\r\n|s p/MiniUPnP/ i/UPnP $1/ cpe:/a:miniupnp_project:miniupnpd/a
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: miniupnpd/([\w._-]+) UPnP/([\w._-]+)\r\n|s p/MiniUPnP/ v/$2/ i/UPnP $1/ cpe:/a:miniupnp_project:miniupnpd:$2/a
+match bigant m|^HTTP/1\.1  403\naenflag:0\ncontent-length:0\nserver:AntServer\n\n| p/BigAnt Messenger server/
 
-# MiniDLNA
-match upnp m|^HTTP/1\.1 501 Not Implemented\r\nContent-Type: text/html\r\nConnection: close\r\nContent-Length: 149\r\n\r\n<HTML><HEAD><TITLE>501 Not Implemented</TITLE></HEAD><BODY><H1>Not Implemented</H1>The HTTP Method is not implemented by this server\.</BODY></HTML>\r\n| p/MiniDLNA/ cpe:/a:minidlna:minidlna/a
-match upnp m|^HTTP/1\.1 501 Not Implemented\r\nContent-Type: text/html\r\nConnection: close\r\nContent-Length: 149\r\nServer: Debian/([\w._/-]+) DLNADOC/([\w._-]+) UPnP/([\w._-]+) MiniDLNA/([\w._-]+)\r\n| p/MiniDLNA/ v/$4/ i/Debian $1; DLNADOC $2; UPnP $3/ o/Linux/ cpe:/a:minidlna:minidlna:$4/a cpe:/o:debian:debian_linux:$1/ cpe:/o:linux:linux_kernel/
-match upnp m|^HTTP/1\.1 501 Not Implemented\r\nContent-Type: text/html\r\nConnection: close\r\nContent-Length: 149\r\nServer: RedHatEnterpriseServer/([\w._/-]+) DLNADOC/([\w._-]+) UPnP/([\w._-]+) MiniDLNA/([\w._-]+)\r\n| p/MiniDLNA/ v/$4/ i/RHEL $1; DLNADOC $2; UPnP $3/ o/Linux/ cpe:/a:minidlna:minidlna:$4/a cpe:/o:linux:linux_kernel/ cpe:/o:redhat:enterprise_linux:$1/
-match upnp m|^HTTP/1\.1 501 Not Implemented\r\nContent-Type: text/html\r\nConnection: close\r\nContent-Length: 149\r\nServer: Fedora/([\w._-]+) DLNADOC/([\w._-]+) UPnP/([\w._-]+) MiniDLNA/([\w._-]+)\r\n| p/MiniDLNA/ v/$4/ i/Fedora $1; DLNADOC $2; UPnP $3/ o/Linux/ cpe:/a:minidlna:minidlna:$4/a cpe:/o:fedoraproject:fedora:$1/ cpe:/o:linux:linux_kernel/
-match upnp m|^HTTP/1\.1 501 Not Implemented\r\nContent-Type: text/html\r\nConnection: close\r\nContent-Length: 149\r\nServer: RAIDiator/([\w._-]+) DLNADOC/([\w._-]+) UPnP/([\w._-]+) MiniDLNA/([\w._-]+)\r\n| p/MiniDLNA/ v/$4/ i/RAIDiator $1; DLNADOC $2; UPnP $3/ o/Linux/ cpe:/a:minidlna:minidlna:$4/a cpe:/o:linux:linux_kernel/a cpe:/o:netgear:raidiator:$1/
-match upnp m|^HTTP/1\.1 501 Not Implemented\r\nContent-Type: text/html\r\nConnection: close\r\nContent-Length: 149\r\nServer: Ubuntu/([\w._-]+) DLNADOC/([\w._-]+) UPnP/([\w._-]+) MiniDLNA/([\w._-]+)\r\n| p/MiniDLNA/ v/$4/ i/Ubuntu $1; DLNADOC $2; UPnP $3/ o/Linux/ cpe:/a:minidlna:minidlna:$4/a cpe:/o:canonical:ubuntu_linux:$1/
-match upnp m|^HTTP/1\.1 501 Not Implemented\r\nContent-Type: text/html\r\nConnection: close\r\nContent-Length: 149\r\nServer: Gentoo/([\w._-]+) DLNADOC/([\w._-]+) UPnP/([\w._-]+) MiniDLNA/([\w._-]+)\r\n| p/MiniDLNA/ v/$4/ i/Gentoo $1; DLNADOC $2; UPnP $3/ o/Linux/ cpe:/a:minidlna:minidlna:$4/a cpe:/o:gentoo:linux:$1/
-match upnp m|^HTTP/1\.1 501 Not Implemented\r\nContent-Type: text/html\r\nConnection: close\r\nContent-Length: 149\r\nServer: SUSE LINUX/n/a DLNADOC/([\w._-]+) UPnP/([\w._-]+) MiniDLNA/([\w._-]+)\r\n| p/MiniDLNA/ v/$3/ i/SUSE Linux; DLNADOC $1; UPnP $2/ o/Linux/ cpe:/a:minidlna:minidlna:$3/a cpe:/o:suse:suse_linux/
-match upnp m|^HTTP/1\.1 501 Not Implemented\r\nContent-Type: text/html\r\nConnection: close\r\nContent-Length: 149\r\nServer: Linux/([\w._-]+) DLNADOC/([\w._-]+) UPnP/([\w._-]+) MiniDLNA/([\w._-]+)\r\n| p/MiniDLNA/ v/$4/ i/DLNADOC $2; UPnP $3/ o/Linux $1/ cpe:/a:minidlna:minidlna:$4/a cpe:/o:linux:linux_kernel:$1/
-match upnp m|^HTTP/1\.1 501 Not Implemented\r\nContent-Type: text/html\r\nConnection: close\r\nContent-Length: 149\r\nServer: (?:Linux )?(([234]\.[\d.]+)[\w._-]+) DLNADOC/([\w._-]+) UPnP/([\w._-]+) MiniDLNA/([\w._-]+)\r\n| p/MiniDLNA/ v/$5/ i/Linux $1; DLNADOC $3; UPnP $4/ o/Linux/ cpe:/a:minidlna:minidlna:$5/a cpe:/o:linux:linux_kernel:$2/
-match upnp m|^HTTP/1\.1 501 Not Implemented\r\nContent-Type: text/html\r\nConnection: close\r\nContent-Length: 149\r\nServer: OpenWrt Linux/([\w._-]+) DLNADOC/([\w._-]+) UPnP/([\w._-]+) MiniDLNA/([\w._-]+)\r\n| p/MiniDLNA/ v/$4/ i/OpenWrt; DLNADOC $2; UPnP $3/ o/Linux $1/ cpe:/a:minidlna:minidlna:$4/a cpe:/o:linux:linux_kernel:$1/
-match upnp m|^HTTP/1\.1 501 Not Implemented\r\nContent-Type: text/html\r\nConnection: close\r\nContent-Length: 149\r\nServer: FreeBSD/([\w._-]+) DLNADOC/([\w._-]+) UPnP/([\w._-]+) MiniDLNA/([\w._-]+)\r\n| p/MiniDLNA/ v/$4/ i/DLNADOC $2; UPnP $3/ o/FreeBSD $1/ cpe:/a:minidlna:minidlna:$4/a cpe:/o:freebsd:freebsd:$1/
-match upnp m|^HTTP/1\.1 501 Not Implemented\r\nContent-Type: text/html\r\nConnection: close\r\nContent-Length: 149\r\nServer:  ?DLNADOC/([\w._-]+) UPnP/([\w._-]+) MiniDLNA/([\w._-]+)\r\n| p/MiniDLNA/ v/$3/ i/DLNADOC $1; UPnP $2/ cpe:/a:minidlna:minidlna:$3/a
-# Catch-all for weird cases reporting OS incorrectly.
-# Avoid any that match OS/version so we can add those as they are submitted
-match upnp m|^HTTP/1\.1 501 Not Implemented\r\nContent-Type: text/html\r\nConnection: close\r\nContent-Length: 149\r\nServer: ([^/ ]+) DLNADOC/([\w._-]+) UPnP/([\w._-]+) MiniDLNA/([\w._-]+)\r\n| p/MiniDLNA/ v/$4/ i/OS: $1; DLNADOC $2; UPnP $3/ cpe:/a:minidlna:minidlna:$4/a
+match bittorrent m|^Nice try\.\.\.\r\n$| p/Transmission Bittorrent client/ cpe:/a:transmissionbt:transmission/
+match bitcoin-jsonrpc m|^HTTP/1\.0 405 Method Not Allowed\r\nContent-Type: text/html; charset=ISO-8859-1\r\n\r\nJSONRPC server handles only POST requests| p/Bitcoin or Litecoin JSON-RPC/
 
-# ReadyDLNA (formerly miniDLNA)
-match upnp m|^HTTP/1\.1 501 Not Implemented\r\nContent-Type: text/html\r\nConnection: close\r\nContent-Length: 149\r\nServer: RAIDiator/([\w._-]+) DLNADOC/([\w._-]+) UPnP/([\w._-]+) ReadyDLNA/([\w._-]+)\r\n| p/ReadyDLNA/ v/$4/ i/RAIDiator $1; DLNADOC $2; UPnP $3/ o/Linux/ cpe:/o:linux:linux_kernel/a cpe:/o:netgear:raidiator:$1/
-match upnp m|^HTTP/1\.1 501 Not Implemented\r\nContent-Type: text/html\r\nConnection: close\r\nContent-Length: 149\r\nServer: Linux[ /]([\d.]+) DLNADOC/([\w._-]+) UPnP/([\w._-]+) ReadyDLNA/([\w._-]+)\r\n| p/ReadyDLNA/ v/$4/ i/DLNADOC $2; UPnP $3/ o/Linux $1/ cpe:/o:linux:linux_kernel:$1/
-match upnp m|^HTTP/1\.1 501 Not Implemented\r\nContent-Type: text/html\r\nConnection: close\r\nContent-Length: 149\r\nServer: ([\d._-]+)ReadyNAS DLNADOC/([\w._-]+) UPnP/([\w._-]+) ReadyDLNA/([\w._-]+)\r\n| p/ReadyDLNA/ v/$4/ i/ReadyNAS; DLNADOC $2; UPnP $3/ o/Linux $1/ cpe:/o:linux:linux_kernel:$1/
-match upnp m|^HTTP/1\.1 501 Not Implemented\r\nContent-Type: text/html\r\nConnection: close\r\nContent-Length: 149\r\nServer: (?:Linux )?(([234]\.[\d.]+)[\w._-]+) DLNADOC/([\w._-]+) UPnP/([\w._-]+) ReadyDLNA/([\w._-]+)\r\n| p/ReadyDLNA/ v/$5/ i/Linux $1; DLNADOC $3; UPnP $4/ o/Linux/ cpe:/o:linux:linux_kernel:$2/
-# Catch-all for weird cases reporting OS incorrectly.
-# Avoid any that match OS/version so we can add those as they are submitted
-match upnp m|^HTTP/1\.1 501 Not Implemented\r\nContent-Type: text/html\r\nConnection: close\r\nContent-Length: 149\r\nServer: ([^/ ]+) DLNADOC/([\w._-]+) UPnP/([\w._-]+) ReadyDLNA/([\w._-]+)\r\n| p/ReadyDLNA/ v/$4/ i/OS: $1; DLNADOC $2; UPnP $3/
+match bluecoat-logd m|^\x03\0\0\x01$| p/Blue Coat Reporter log server/
 
-match upnp m|^HTTP/1\.1 501 Not Implemented\r\nConnection: close\r\nContent-type: text/html\r\n\r\n<HTML><HEAD><TITLE>501 Not Implemented</TITLE></HEAD><BODY><H1>Not Implemented</H1>The HTTP Method is not implemented by this server\.</BODY></HTML>\r\n$| p/MiniUPnP/ cpe:/a:miniupnp_project:miniupnpd/a
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: Linux Mips ([\w._-]+) UPnP/([\w.]+) MiniUPnPd/([\w.]+)\r\n|s p/MiniUPnP/ v/$3/ i/Linux $1 (MIPS); UPnP $2/ o/Linux/ cpe:/a:miniupnp_project:miniupnpd:$3/a cpe:/o:linux:linux_kernel:$1/a
-match upnp m|^ 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: SmoothWall Express/([\w._-]+) UPnP/([\w.]+) miniupnpd/([\w.]+)\r\n|s p/MiniUPnP/ v/$3/ i/SmoothWall Express $1; UPnP $2/ o/Linux/ cpe:/a:miniupnp_project:miniupnpd:$3/a cpe:/o:linux:linux_kernel/a
-match upnp m|^ 501 Not Implemented\r.*\nServer: SDK ([\d.]+) UPnP/([\d.]+) MiniUPnPd/([\d.]+)\r\n|s p/MiniUPnP/ v/$3/ i/Netgear SDK $1; UPnP $2/ cpe:/a:miniupnp_project:miniupnpd:$3/a
-match upnp m|^ 501 Not Implemented\r.*\nServer: SDK ([\d.]+) UPnP/([\d.]+) MiniUPnPd/([\d.]+)_MTK_v([\d_]+)\r\n\r\n|s p/MiniUPnP/ v/$3/ i|Linksys/Belkin WiFi range extender; SDK $1; UPnP $2; MTK $SUBST(4,"_",".")| cpe:/a:miniupnp_project:miniupnpd:$3/a
-match upnp m|^ 501 Not Implemented\r.*\nServer: RedHatEnterpriseServer/([\d.]+) UPnP/([\d.]+) MiniUPnPd/([\d.]+)\r\n|s p/MiniUPnP/ v/$3/ i/RHEL $1; UPnP $2/ o/Linux/ cpe:/a:miniupnp_project:miniupnpd:$3/a cpe:/o:linux:linux_kernel/ cpe:/o:redhat:enterprise_linux:$1/
-match upnp m|^ 501 Not Implemented\r.*\nServer: EXOS/OpenWrt UPnP/([\d.]+) MiniUPnPd/([\d.]+)\r\n|s p/MiniUPnP/ v/$2/ i/Calix EXOS; UPnP $1/ o/Linux/ cpe:/a:miniupnp_project:miniupnpd:$2/a cpe:/o:linux:linux_kernel/
-match upnp m|^HTTP/1\.1 400 Bad Request\r\nDATE: .*\r\nConnection: Keep-Alive\r\nServer: UPnP/([\d.]+)\r\nContent-Length: 0\r\nContent-Type: text/xml; charset=\"utf-8\"\r\nEXT:\r\n\r\n$| p/UPnP/ v/$1/ d/broadband router/
-match upnp m|^HTTP/1\.1 \d\d\d (?:[^\r\n]*\r\n(?!\r\n))*?Server: *Linux/([-\w_.]+), UPnP/([-\w_.]+), TwonkyVision UPnP SDK/([-\w_.]+)\r\n|s p/TwonkyMedia UPnP/ i/Linux $1; UPnP $2; SDK $3/ o/Linux/ cpe:/a:packetvideo:twonky/ cpe:/o:linux:linux_kernel:$1/a
-match upnp m|^HTTP/1\.1 400 Bad request\r\nServer: Reciva UPnP/([\w._-]+) Radio/([\w._-]+) DLNADOC/([\w._-]+)\r\nContent-length: 0\r\nConnection: close\r\n\r\n$| p/dnt IPdio radio UPnP/ v/$2/ i/UPnP $1; DLNADOC $3/ d/media device/
-match upnp m|^HTTP/0\.0 400 Bad Request\r\nServer: ([\w._-]+) \d+/Service Pack (\d+), UPnP/([\d.]+), TVersity Media Server\r\n| p/TVersity Media Server UPnP/ v/$1 SP $2/ i/UPnP $3/ o/Windows/ cpe:/o:microsoft:windows/a
-match upnp m|^HTTP/0\.0 400 Bad Request\r\nServer: Windows/([\w._-]+\.2600)/Service Pack (\d+), UPnP/([\d.]+), TVersity Media Server/([\w._-]+)\r\n| p/TVersity Media Server UPnP/ v/$4/ i/UPnP $3; Windows build $1/ o/Windows XP/ cpe:/o:microsoft:windows_xp::sp$2/
-match upnp m|^HTTP/0\.0 400 Bad Request\r\nServer: Windows/([\w._-]+)\.6001/Service Pack (\d+), UPnP/([\d.]+), TVersity Media Server/([\w._-]+)\r\n| p/TVersity Media Server UPnP/ v/$4/ i/UPnP $3; Windows build $1/ o/Windows Vista/ cpe:/o:microsoft:windows_vista::sp$2/
-match upnp m|^HTTP/0\.0 400 Bad Request\r\nServer: ([\w._-]+) 2/, UPnP/([\w._-]+), TVersity Media Server\r\n|s p/TVersity Media Server UPnP/ v/$1/ i/UPnP $2/ o/Windows/ cpe:/o:microsoft:windows/a
-match upnp m|^HTTP/1\.1 \d\d\d .*\r\nDATE: .*\r\nConnection: Keep-Alive\r\nServer: LINUX/([\w._-]+) UPnP/([\d.]+) BRCM400/([\d.]+)\r\n| p|Belkin/Linksys wireless router UPnP| i/UPnP $2; BRCM400 $3/ d/router/ o/Linux $1/ cpe:/o:linux:linux_kernel:$1/
-match upnp m|^HTTP/1\.1 \d\d\d .*\r\nDATE: .*\r\nConnection: Keep-Alive\r\nServer: LINUX/([\w._-]+) UPnP/([\d.]+) ZyXEL-UPnP/([\w._-]+)\r\n| p/ZyXEL wireless router UPnP/ i/UPnP $2; ZyXEL-UPnP $3/ d/router/ o/Linux $1/ cpe:/o:linux:linux_kernel:$1/
-match upnp m|^HTTP/1\.1 400 Bad Request\r\nServer: Symbian/([\w._-]+) UPnP/([\d.]+)\r\nContent-Length: 151\r\n\r\n<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2\.0//EN\">\n<html><head>\n<title>400 Bad Request</title>\n</head><body>\n<h1>Bad Request</h1>\n<hr />\n</body></html>$| p/Nokia N85 media share/ i/SymbianOS $1; UPnP $2/ d/phone/ o/Symbian/ cpe:/o:symbian:symbian/
-match upnp m|^HTTP/1\.1 200 OK\r\n(?:[^\r\n]+\r\n)*?SERVER: XboxUpnp/([\w._-]+) UPnP/([\w._-]+) Xbox/2\.0\.(\d+)\.0\r\n|s p/Microsoft Xbox 360 upnpd/ v/$1/ i/UPnP $2; Xbox Dashboard 2.0.$3.0/ o/Xbox 360/ cpe:/h:microsoft:xbox_360_kernel:$3/
-match upnp m|^HTTP/0\.0 400 Bad Request\r\nSERVER: Linux/([\w._-]+) UPnP/([\w._-]+) SKY DLNADOC/([\w._-]+)\r\n\r\n| p/BSkyB router upnpd/ i/UPnP $2; DLNADOC $3/ d/broadband router/ o/Linux $1/ cpe:/o:linux:linux_kernel:$1/
-# ISP-branded, could be Actiontec, ZyXEL, Westell, Motorola, Netopia, 2Wire, Cisco, Thompson.
-match upnp m|^HTTP/1\.1 400 Bad Request\r\nDATE: .*\r\nServer: LINUX/([\w._-]+) UPnP/([\d.]+) CenturyLink-TR064/([\d.]+)\r\nContent-Length: 0\r\nContent-Type: text/xml; charset=\"utf-8\"\r\nEXT:\r\n\r\n| p/CenturyLink DSL modem upnpd/ v/$3/ i/Linux $1; UPnP $2/ o/Linux/ cpe:/o:linux:linux_kernel:$1/a
-match upnp m|^HTTP/1\.1 400 Bad Request\r\nDATE: .*\r\nConnection: Keep-Alive\r\nServer: LINUX/([\w._-]+) UPnP/([\d.]+) CenturyLink-UPnP/([\d.]+)\r\nContent-Length: 0\r\nContent-Type: text/xml; charset=\"utf-8\"\r\nEXT:\r\n\r\n| p/CenturyLink DSL modem upnpd/ v/$3/ i/Linux $1; UPnP $2/ o/Linux/ cpe:/o:linux:linux_kernel:$1/a
-match upnp m|^HTTP/1\.1 400 Bad Request\r\nCONTENT-TYPE: text/xml; charset="utf-8"\r\nDATE: .*\r\nEXT: \r\nSERVER: UPnP/([\d.]+) AwoX/([\d.]+)\r\nCONTENT-LENGTH: 0\r\n| p/AwoX upnpd/ v/$2/ i/UPnP $1/
-match upnp m|^HTTP/1\.1 501 Not Implemented\r\n(?:[^\r\n]+\r\n)*?Server: ([34][\d.]+)(?:-generic)? Microsoft-Windows/[\d.]+ Windows-Media-Player-DMS/[\d.]+ DLNADOC/([\d.]+) UPnP/([\d.]+) QNAPDLNA/([\d.]+)\r\n|s p/QNAP DLNA/ v/$4/ i/DLNADOC $2; UPnP $3/ o/Linux $1/ cpe:/o:linux:linux_kernel:$1/a
+match brio m|^com\.sqribe\.null\0java\.lang\.String\0com\.sqribe\.transformer\.TransformerException\0java\.lang\.String\0TRCP version mismatch: Current version: (\d+) Client version: unknown\0$| p/Brio 8 business intelligence tool/ v/$1/
 
-# maybe shouldn't be softmatch, but we get such good info from the bit in the Server header
-softmatch upnp m|^ 501 Not Implemented\r.*\nServer: [^\r\n]*UPnP/([\d.]+) MiniUPnPd/([\d.]+)\r\n|s p/MiniUPnP/ v/$2/ i/UPnP $1/ cpe:/a:miniupnp_project:miniupnpd:$2/a
+match caldav m|^HTTP/1\.1 401 Unauthorized\r\n(?:[^\r\n]+\r\n)*?WWW-Authenticate: negotiate \r\nWWW-Authenticate: digest nonce=\"\d+\", realm=\"/Search\", algorithm=\"md5\"\r\n(?:[^\r\n]+\r\n)*?Server: Twisted/([\w._-]+) TwistedWeb/([\w._-]+)\r\n|s p/TwistedWeb httpd/ v/$2/ i/Apple iCal Server; Twisted $1/ cpe:/a:twistedmatrix:twisted:$1/ cpe:/a:twistedmatrix:twistedweb:$2/a
+match caldav m|^HTTP/1\.1 401 Unauthorized\r\n.*WWW-Authenticate: Basic realm=\"Zarafa CalDav Gateway\"\r\nContent-Length: 0\r\nServer: Zarafa\r\n| p/Zarafa CalDav Gateway/ cpe:/a:zarafa:zarafa/
+match caldav m|^HTTP/1\.1 \d\d\d (?:[^\r\n]*\r\n(?!\r\n))*?Server: CalendarServer/([\w._-]+)\(iCalServerv([\w._-]+)\) Twisted/([\w._-]+) TwistedWeb/([\w._-]+)\r\n(?:[^\r\n]+\r\n)*?DAV: 1|s p/TwistedWeb httpd/ v/$4/ i/Calendar and Contacts Server $1; iCalServer $2; Twisted $3/ o/Mac OS X/ cpe:/a:twistedmatrix:twisted:$3/ cpe:/a:twistedmatrix:twistedweb:$4/a cpe:/o:apple:mac_os_x/a
+match caldav m|^HTTP/1\.1 \d\d\d (?:[^\r\n]*\r\n(?!\r\n))*?Server: CalendarServer/([\w._()-]+) Twisted/([\w._-]+) TwistedWeb/([\w._-]+)\r\n(?:[^\r\n]+\r\n)*?DAV: 1|s p/TwistedWeb httpd/ v/$3/ i/Calendar and Contacts Server $1; Twisted $2/ cpe:/a:twistedmatrix:twisted:$2/ cpe:/a:twistedmatrix:twistedweb:$3/a
+match caldav m|^HTTP/1\.0 200 OK\r\nDate: .*\r\nServer: WSGIServer/([\w._-]+) Python/([\w._-]+)\r\nContent-Length: \d+\r\nContent-type: text/html\r\n\r\n<!DOCTYPE html>\n<title>Radicale</title>Radicale works!| p/Radicale CalDAV CardDAV/ i/WSGIServer $1; Python $2/ cpe:/a:kozea:radicale/ cpe:/a:python:python:$2/ cpe:/a:python:wsgiref:$1/
+match caldav m|^HTTP/1\.1 401 Unauthorized\r\nContent-Length: 0\r\nWww-Authenticate: Digest realm=\"Daylite\", qop=\"auth\", nonce=\"[\dA-F]{8}-[\dA-F]{4}-[\dA-F]{4}-[\dA-F]{4}-[\dA-F]{12}\"\r\nAccept-Ranges: bytes\r\nDate: .* GMT\r\n\r\n| p/Daylite Server Admin/ o/Mac OS X/ cpe:/o:apple:mac_os_x/a
 
-match uptime-agent m|^ERR\n$| p/up.time server monitor/
-# Version 5.3.0 - Is this a memory address?
-match uptime-agent m|^ERR - Command '\xe0\xb6VU\xd8\xbaVU' not found\n| p/up.time server monitor/
+match cassandra-native m|^\x83\0\0\0\0\0\0\0\x8c\0\0\0\0\0\x86io\.netty\.handler\.codec\.DecoderException: org\.apache\.cassandra\.transport\.ProtocolException: Invalid or unsupported protocol version: 71| p/Apache Cassandra/ i/native protocol version 3/ cpe:/a:apache:cassandra/
+match cassandra-native m|^\x82\0\0\0\0\0\0\0\x8c\0\0\0\0\0\x86io\.netty\.handler\.codec\.DecoderException: org\.apache\.cassandra\.transport\.ProtocolException: Invalid or unsupported protocol version: 71| p/Apache Cassandra/ i/native protocol version 2/ cpe:/a:apache:cassandra/
+match cassandra-native m|^\x81\0\0\0\0\0\0\0\x8c\0\0\0\0\0\x86io\.netty\.handler\.codec\.DecoderException: org\.apache\.cassandra\.transport\.ProtocolException: Invalid or unsupported protocol version: 71| p/Apache Cassandra/ i/native protocol version 1/ cpe:/a:apache:cassandra/
+match cassandra-native m|^.\0\0\0\0\0\0\0.\0\0\0\n\0[eE]Invalid or unsupported protocol version \(71\); highest supported is (\d+) | p/Apache Cassandra/ v/2.2.0 - 2.2.9/ i/native protocol version $1/ cpe:/a:apache:cassandra:2.2/
+match cassandra-native m|^.\0\0\0\0\0\0\0.\0\0\0\n\0[eE]Invalid or unsupported protocol version \(71\); the lowest supported version is (\d+) and the greatest is (\d+)| p/Apache Cassandra/ v/3.0.0 - 3.9/ i/native protocol version $1-$2/ cpe:/a:apache:cassandra:3/
+match cassandra-native m|^.\x10\0\0\0\0\0\0.\0\0\0\n\0\\Invalid or unsupported protocol version \(71\); supported versions are \((\d+[^)]+)\)| p/Apache Cassandra/ v/3.10 or later/ i/native protocol versions $1/ cpe:/a:apache:cassandra:3/
 
-match unreal-media m|^\xb1\x36\x00\x00\x19\x00\x00\x00\x30\x05\xff\x8f\x00\x00\x00\x00\x88\xff.\x03.\xef.\x00$|s p/Unreal Media Server/ o/Windows/ cpe:/o:microsoft:windows/
+match clickhouse m|^\x02e\0\0\0\x10DB::NetException/DB::NetException: Unexpected packet from client..0\. clickhouse-server\(StackTrace::StackTrace\(\)\+0x16\) \[0x[0-9a-f]+\]\n| p/ClickHouse DBMS/ cpe:/a:yandex:clickhouse/
+softmatch clickhouse m|^HTTP/1\.0 400 Bad Request\r\n\r\nPort \d+ is for clickhouse-client program\.\r\nYou must use port \d+ for HTTP\.\r\n| p/ClickHouse DBMS/ cpe:/a:yandex:clickhouse/
 
-match signiant m|^dds_pc: _ms=([\w._-]+)\xfe_si=Process controller\xfe_mid=9010\xfe_sev=0\xfe_dt=\d+/\d+/\d+\xfe_tm=\d+:\d+:\d+\xfe_pkg=\xfe\n\n| p/Signiant Media Exchange/ h/$1/
+match cryptonote m|^HTTP/1\.0 200 OK\nContent-Type: text/plain\nContent-Length: 20\n\nmining server online| p/node-cryptonote-pool CryptoNote miner/ i/Node.js/ cpe:/a:nodejs:node.js/
+match csta m|^<HTML>\r\n<HEAD>\r\n<TITLE>CSTA-Mono Server Home Page </TITLE>\r\n| p/Alcatel OmniPCX Enterprise/ d/PBX/ cpe:/a:alcatel-lucent:omnipcx/
 
-match spy-net m=^tentarnovamente\|\r\ntentarnovamente\|\r\n= p/Spy-Net or CyberGate backdoor/ i/**BACKDOOR**/
+match daap m|^HTTP/1\.1 404 Not Found\r\nConnection: close\r\nDate: .*\r\nContent-Length: 24\r\n\r\nCommand not implemented\.$| p/Amarok music player DAAP/
+match daap m|^HTTP/1\.1 400 Bad Request\r\n(?:Date: .*\r\n)?DAAP-Server: iTunes/(\d[-.\w]+) \((.*)\)\r\n| p/Apple iTunes DAAP/ v/$1/ o/$2/ cpe:/a:apple:itunes:$1/
+match daap m|^HTTP/1\.1 403 Forbidden\r\nDate: .*\r\nDAAP-Server: iTunes/(\d[-.\w]+) \((.*)\)\r\nContent-Type: application/x-dmap-tagged\r\nContent-Length: 0\r\n\r\n$| p/Apple iTunes DAAP/ v/$1/ o/$2/ cpe:/a:apple:itunes:$1/
+match daap m|^HTTP/1\.1 \d\d\d (?:[^\r\n]*\r\n(?!\r\n))*?Server: mt-daapd/([-\w.]+)\r\n|s p/mt-daapd DAAP/ v/$1/
+# Also "DAAP Music Sharing Plugin on rhythmbox 2.96"
+match daap m|^HTTP/1\.0 404 Not Found\r\nDate: .*\r\nContent-Length: 0\r\n\r\n$| p/mt-daapd DAAP/
+match daap m|^HTTP/1\.1 \d\d\d .*\r\nDAAP-Server: daap-sharp\r\nContent-Type: application/x-dmap-tagged\r\nContent-Length: \d+\r\n\r\ninvalid session id| p/DAAPsharp DAAP/
+match daap m|^HTTP/1\.0 400 Bad Request\nServer: Hughes Technologies Embedded Server \(persistent patch\)\r\n| p/daapd/ i/Hughes embedded/
+match daap m|^HTTP/1\.0 401 Unauthorized\r\nWWW-Authenticate: Basic realm=\"forked-daapd web interface\"\r\nContent-Length: 92\r\nServer: forked-daapd/([\w._-]+)\r\n\r\n<html><head><title>401 Unauthorized</title></head><body>Authorization required</body></html>\r\n$| p/forked-daapd/ v/$1/
+match daap m|^HTTP/1\.0 401 Unauthorized\r\nWWW-Authenticate: Basic realm=\"forked-daapd web interface\"\r\nContent-Type: text/html; charset=ISO-8859-1\r\n\r\n<html><head><title>401 Unauthorized</title></head><body>Authorization required</body></html>$| p/forked-daapd/
 
-# Vizio Smart TV model M501D-A2R on 8099/tcp w/ssl tunnel
-match vizio-tv m|^ERROR\x7c101\x7cUnknown Message Type\x7cEND| p/Vizio Smart TV unknown service/ d/media device/
+match dnet-keyproxy m|^HTTP/1\.0 302 Found\r\nLocation: http://www\.distributed\.net/\r\n\r\n$| p/Distributed.Net HTTP Keyproxy/
 
-match vnc m|^0\x82\x01\n\x02\x82\x01\x01\0| p/Ultr@VNC/ v/1.0.8.0/ o/Windows/ cpe:/a:ultravnc:ultravnc:1.0.8.0/ cpe:/o:microsoft:windows/a
+softmatch docker m|^HTTP/1\.0 404 Not Found\r\nContent-Type: application/json\r\nDate: .*\r\nContent-Length: 29\r\n\r\n\{"message":"page not found"\}\n| p/Docker remote API/
 
-match bitkeeper m|^ERROR-Try help\nERROR-Try help\n$| p/Bitkeeper/
-match webcache m|^HTTP/1\.0 400 Bad Request\r\nExpires: .*\r\nContent-Type: text/html\r\n\r\n<html>\n<head><title>Bad formed request or url</title>\n| p/webcache/
-# Novell ZENworks for Desktops Imaging Proxy 4.01.03
-# Not sure if this is netware specific (linux too?) -Doug
-match zenimaging m|^\xff\xff\xfb&$| p/Novell ZENworks Imaging Proxy/ cpe:/a:novell:zenworks_desktops/
+match drda m|^\0\x79\xd0\x02\xff\xff\0\x73\x12\x4c\0\x06\x11\x49\0\x08\0\x4e\x11S\0\xd3| p/IBM DRDA/
+match drda m|^\0\x1b\xd0\x02\0\x01\0\x15\x12\x4c\0\x06\x11\x49\0\x08\0\x06\0\x0c\0\0\0\x05\x11\x4a\x03$| p/Apache Derby DRDA/ cpe:/a:apache:derby/
 
-match ajp12 m|^Status: 400 Bad Request\r\nServlet-Error: Malformed data sent to JServ\r\n\r\n$| p/Apache Jserv/
+match dslcpe m|^GET: command not found\n\r   acog,          AutobootConfigOptionGet\n\r| p/dsl_cpe_control/ d/broadband router/
 
-match nuttcp m|^KO\nnuttcp-t: v([\d.]+): error scanning parameters\nmay be using older client version than server\n\r\nKO\n| p/nuttcp network throughput tester/ v/$1/
-match backdoor m|^sh-2\.05b\$ | p/r0nin rootkit backdoor/
+match econtagt m|^=\0\0\0$| p/Compuware ServerVantage EcoNTAgt/ cpe:/a:compuware:servervantage_agent/
 
-match upsd m|^ERR UNKNOWN-COMMAND\nERR UNKNOWN-COMMAND\n$| p/Network UPS Tools upsd/ v/2.6.1/ i/Synology DS209 NAS device/ d/storage-misc/ cpe:/h:synology:ds209/
+match elasticsearch m|^This is not an? HTTP port$| p/Elasticsearch binary API/ cpe:/a:elasticsearch:elasticsearch/
+match emco-remote-screenshot m|^\x06!\x01\0\0\0\0\0\xff\xd8\xff\xe0\0\x10JFIF| p/EMCO Remote Screenshot/
 
-match websense-eim m|^\0\x0c\r\n\0\x01\0\x01\0\0\0\0$| p/Websense EIM/ cpe:/a:websense:websense/
+match encase m|^....\x80\0\0\0\0\0\0\0........\0\0\0\0\0\0\0\0\x01\0\0\0F\0\0\0\xb0\x04\0\0\0\0\0\0\0\0\0\0\xff\xfe1\0\n\0m\0a\0i\0n\0\n\0n\0\n\0I\0n\0v\0a\0l\0i\0d\0 \0h\0e\0a\0d\0e\0r\0 \0c\0h\0e\0c\0k\0s\0u\0m\0\n\0\n\0..........| p/EnCase Servlet/
 
-match websocket m|^HTTP/1\.1 400 \r\nServer: WebSocket\+\+/([\d.]+)\r\n\r\n| p/WebSocket++/ v/$1/ cpe:/a:zaphoyd:websocketpp:$1/
-match websocket m|^HTTP/1\.1 404 WebSocket Upgrade Failure\r\nContent-Type: text/html\nServer: TooTallNate Java-WebSocket\r\n| p/Java-WebSocket/ cpe:/a:tootallnate:java-websocket/
+match eth-jsonrpc m|^HTTP/1\.0 200 OK\r\nContent-Type: application/json\r\nVary: Origin\r\nDate: .*\r\nContent-Length: \d+\r\n\r\n\{"jsonrpc":"([\d.]+)","error":\{"code":-32600,"message":"EOF"\}\}\n| p/Ethereum JSON-RPC/ i/jsonrpc $1/
+match fhem m|^\n\[LaCrosseITPlusReader\.(\d[\w.]+) \w\w\w \d\d \d\d\d\d \(RFM\d+ f:\d+ t:[\d~]+\) \+ DHT\d+\]\r\n| p/LaCrosse IT+ Reader/ v/$1/ d/specialized/
 
-match wesnoth m|^\0\0\0.\0\0\0\x1f\x02version\0\x04([\d.]+)\0\0\x02mustlogin\0\x05\x01\0|s p/Battle For Wesnoth game server/ v/$1/
-match wesnoth m|^\0\0\0.\0\0\0.\x1f\x8b\x08\0\0\0\0\0\0\xff\x8b\.K-\*\xce\xcc\xcf\x8b\xe5\x8a\xd6\x873\x01 \xbc\x17\x06\x15\0\0\0| p/Battle For Wesnoth game server/
+# Digital UNIX 5.6
+match finger m|^Login name: /         \t\t\tIn real life: \?\?\?\r\n\r\nLogin name: GET       \t\t\tIn real life: \?\?\?\r\n\r\nLogin name: HTTP/1\.0  \t\t\tIn real life: \?\?\?\r\n$| p/Digital UNIX fingerd/ o/Digital UNIX/ cpe:/o:dec:digital_unix/a
+# Internet Rex v2.67 Beta 1a
+match finger m|^No such user No such user N\n$| p/Internet Rex finger server/
+# IQinVision IQeye3 security camera
+match finger m|^\n Nodename:\s+(\w+)\r\n| p/IQinVision fingerd/ i/Camera/ d/webcam/ h/$1/
+# FreeBSD 4.9-STABLE /usr/libexec/fingerd/
+match finger m|^finger: /: no such user\r?\nfinger: GET: no such user\r?\nfinger: HTTP/1\.0: no such user\r?\n$| p/FreeBSD fingerd/ o/FreeBSD/ cpe:/o:freebsd:freebsd/a
+# Bay Networks Micro Annex Comm. Server R10.0
+match finger m|^No such activity\.\r\n$| p/Bay Networks Micro Annex terminal server fingerd/ d/terminal server/
+# Mercury/32 3.32 Finger Server module on Windows XP
+match finger m|^GET / HTTP/1\.0 is not known at this site\.\r\n$| p|Mercury/32 fingerd| o/Windows/ cpe:/o:microsoft:windows/a
+# ffingerd 1.28
+match finger m|^That user does not want to be fingered\.\n$| p/ffingerd/
+# Finger 0.17 from debian linux (which is from Linux netkit I believe)
+# OpenBSD 2.3
+match finger m|^finger: GET: no such user\.\nfinger: /: no such user\.\nfinger: HTTP/1\.0: no such user\.\n$| p|BSD/Linux fingerd| o/Unix/
+# Linux port of in.fingerd from OpenBSD network tools - started with -w to show welcome banner
+match finger m|^\r\nWelcome to Linux version (\d[-.\w]+) at ([-.\w]+) !\r\n\n.*\n\r\nfinger: GET: no such user\.|s p/OpenBSD fingerd/ i/ported to Linux/ o/Linux $1/ h/$2/ cpe:/o:linux:linux_kernel:$1/
+# Redhat Linux from finger-server-0.17-9 RPM
+match finger m|^finger: GET: no such user.\r\nfinger: /: no such user.\r\nfinger: HTTP/1.0: no such user.\r\n$| p/Linux fingerd/ o/Linux/ cpe:/o:linux:linux_kernel/a
+# NetBSD 1.6ZA (berkeley fingerd 8.1 sibling)
+match finger m|^finger: GET: no such user\nfinger: /: no such user\nfinger: HTTP/1\.0: no such user\n$| p/NetBSD fingerd/ cpe:/o:netbsd:netbsd/
+# Solaris 9
+match finger m|^Login       Name               TTY         Idle    When    Where\r\nGET                   \?\?\?\r\n/                     \?\?\?\r\nHTTP/1\.0              \?\?\?\r\n$| p/Sun Solaris fingerd/ o/Solaris/ cpe:/o:sun:sunos/a
+# mlfingerd 1.1
+match finger m|^Information for user 'GET\+20\+2F\+20HTTP\+2F1\.0':\r\nUnknown user\.\r\n$| p/mlfingerd/
+# SGI IRIX 6.5.18f finger
+match finger m|^Login name: GET       \t\t\tIn real life: \?\?\?\r\n$| p/SGI IRIX or NeXTSTEP fingerd/
+# Windows fingerd
+match finger m|^No such user\n$| p/Windows fingerd/ o/Windows/ cpe:/o:microsoft:windows/a
+match finger m|^MSS100 Version V([\d/.]+)\(\d+\) - Time Since Boot: \d+:\d\d:\d\d\r\nName        pid     stat  pc       cpusec    stack    pr/sy   idle    tty\r\n| p/Lantronix MSS100 serial interface fingerd/ v/$1/ d/specialized/
+match finger m|^finger: GET / HTTP/1\.0: no such user\n| p/efingerd/ o/Unix/ cpe:/a:radovan_garabik:efingerd/
+match finger m|^ +-;;=\n +\.;M####\+\n| p/mIRC with ircN script fingerd/ o/Windows/ cpe:/o:microsoft:windows/a
+match finger m|^User not found\r\n| p/XMail fingerd/ cpe:/a:davide_libenzi:xmail/
+match finger m|^EMail       : [-\w_.]+@([-\w_.]+)\r\n  Real Name : \?\?\r\n  Home Page : \?\?\r\n| p/XMail fingerd/ h/$1/ cpe:/a:davide_libenzi:xmail/
+match finger m|^\r\nIntegrated port\r\nPrinter Type: IBM Infoprint (.*)\r\n| p/IBM Infoprint $1 fingerd/ d/print server/ cpe:/a:ibm:infoprint_$SUBST(1," ","_")/
+match finger m|^Login name: HTTP/1\.0       In real life: \?\?\?\r\n| p/OpenVMS fingerd/ o/OpenVMS/ cpe:/o:hp:openvms/a
+match finger m|^No information available\r\n$| p/Post.Office fingerd/
+match finger m|^finger: sorry, no such user\.\n$| p/xfingerd/
+match finger m|^finger: HTTP/1\.0: no such user\.\r\n| p/BSD fingerd/ cpe:/a:bsd:fingerd/
+match finger m|^no such user here\n$| p/MiamiDx fingerd/ o/AmigaOS/
 
-match workrave m|^\0\x26\x02\0\0\x06\0.[\d.]+:\d+\0\x01\0\x11\0\x04\0\x01\0\x03\0\xaa\x02\0\0\x06\0.[\d.]+:\d+\0\x01\0\x10\0\x88\0\x03\0\x0bmicro_pause\0\x20\x4c\xa4\x86\x8e\0\0\0\xb4\0\0\0\x01\0\0\0\0\0\0\0\0L\xa4\x86\x8d\0\0\0\xb4\0\0\0\x0arest_break\0|s p/Workrave/
+match git m|^0077ERR \n  Your Git client has made an invalid request:\n  GET / HTTP/1\.0\r\n\r\n\n  Visit http://support\.github\.com for help$| p/Git/ i/GitHub/
 
-match wrproxy m|^error wrproxy: Error parsing command line\0| p/Wind River wrproxy/ cpe:/a:windriver:workbench/
+match gnutella m|^HTTP/1\.[01] 404 Not Found\r\nServer: gtk-gnutella/(\d[-.\w]+) \(([^\)\r\n]+)\)\r\n| p/gtk-gnutella P2P client/ v/$1/ i/$2/
+match gnutella m|^HTTP/1\.[01] 403 Browse Host Disabled\r\nServer: gtk-gnutella/(\d[-.\w]+) \(([^\)\r\n]+)\)\r\n| p/gtk-gnutella P2P client/ v/$1/ i/$2; browse host disabled/
+match gnutella m|^HTTP/1\.[01] \d\d\d (?:[^\r\n]*\r\n(?!\r\n))*?Server: gtk-gnutella/(\d[-\w.]+) \([-\d]+; GTK2; Linux i686\)\r\n.*sharing (\d+) files ([\d.]+ \w+) total</h3>\r\n|s p/gtk-gnutella P2P client/ v/$1/ i/Sharing $2 files, $3/ o/Linux/ cpe:/o:linux:linux_kernel/a
 
-match wtam m|^WTAM/1\.0 401 Unrecognized Command\n\n$| p/Webtrends WTAM/
+# LimeWire 3.5.8 on Suse Linux 8.1
+match gnutella m|^HTTP/1\.1 406 Not Acceptable\r\n(?:\r\n)?$| p/LimeWire Gnutella P2P client/ cpe:/a:limewire:limewire/
+match gnutella m|^HTTP/1\.0 406 Not Acceptable\r\nDate: .*\r\nServer: LimeWire/([\w._-]+)\r\n| p/LimeWire Gnutella P2P client/ v/$1/ cpe:/a:limewire:limewire:$1/
+match gnutella m|^HTTP/1\.0 200\r\nServer: Mutella\r\n| p/Mutella Gnutella P2P client/
+match gnutella m|^HTTP/1\.1 404 Not Found\r\nServer: giFT-Gnutella/(\d[-.\w]+)\r\n| p/GiFT P2P client gnutella module/ v/$1/
+match gnutella m|^HTTP/1\.1 200 OK\r\n(?:[^\r\n]+\r\n)*?Server: Shareaza (\d\S+)|s p/Shareaza/ v/$1/
+match gnutella m|^HTTP/1\.1 \d\d\d (?:[^\r\n]*\r\n(?!\r\n))*?Server: BearShare ([\d.]+)\r\n|s p/BearShare Gnutella P2P client/ v/$1/ o/Windows/ cpe:/o:microsoft:windows/a
+match gnutella m|^HTTP/1\.1 \d\d\d (?:[^\r\n]*\r\n(?!\r\n))*?Server: BearShare ([\d.]+) \(([^)]+)\)\r\n|s p/BearShare Gnutella P2P client/ v/$1/ i/$2/ o/Windows/ cpe:/o:microsoft:windows/a
+match gnutella m|^HTTP/1\.1 503 Web: Disabled\r\nServer: BearShare Pro ([\d.]+)\r\nContent-Length: \d+\r\n| p/BearShare Pro Gnutella P2P client/ v/$1/ i/Web disabled/ o/Windows/ cpe:/o:microsoft:windows/a
+match gnutella m|^HTTP/1\.1 503 Web: Disabled\r\nServer: BearShare Lite ([\d.]+)\r\nContent-Length: \d+\r\n| p/BearShare Lite Gnutella P2P client/ v/$1/ i/Web disabled/ o/Windows/ cpe:/o:microsoft:windows/a
+match gnutella m|^HTTP/1\.1 \d\d\d .*\r\nDate: .*\r\nServer: GhostWhiteCrab/([\d.]+)\r\nConnection: close\r\n\r\n| p/GhostWhiteCrab gnutella cache/ v/$1/
+match gnutella m|^HTTP/1\.0 501 Not Implemented\r\nDate: .*\r\nServer: Frosty/([\w._-]+)\r\nContent-Length: 0\r\nConnection: Close\r\n\r\n| p/Frostwire P2P/ i/Frosty $1/
 
-match wub-command m|^Command Shell\r\n\r\n% \r\n% | p/Wub httpd command console/
+match gopher m|^HTTP/1\.0 200 Ok\r\nMIME-Version: 1\.0\r\nServer: GopherWEB/(\d[-.\w]+)\r\n| p/Internet Gopher Server/ i/Gopher+ protocol; GopherWeb $1/
+match gopher m|^0'/GET / HTTP/1\.0' doesn't exist!\t\terror\.host\t1\r\n\.\r\n$| p/Bucktooth gopherd/
+match gopher m|^3 --6 Bad Request\. \r\n\.\r\n$| p/Windows gopherd/ o/Windows/ cpe:/o:microsoft:windows/a
+match gopher m|^3 --6 Ung\xfcltige Anforderung\. \r\n\.\r\n$| p/Windows gopherd/ i/German/ o/Windows/ cpe:/o:microsoft:windows/a
+match gopher m|^3'/GET / HTTP/1\.0' does not exist \(no handler found\)\t\terror\.host\t1\r\n| p/pygopherd/
+# GoFish is also a Gopher-to-HTTP gateway.
+match gopher m|^HTTP/1\.0 500 Server Error\r\nServer: Server: GoFish/([\d.]+) \(Linux\)\r\n|s p/GoFish gopherd/ v/$1/ o/Linux/ cpe:/o:linux:linux_kernel/a
+match gopher m|^3Sorry, but the requested token 'GET / HTTP/1\.0\r\n' could not be found\.\tErr\t([\w._-]+)\t\d+\r\n\.\r\n\r\n| p/Geomyidae/ h/$1/
+match gopher m|^iUnable to locate requested resource\.\t\t([\w._-]+)\t\d+\r\n\.\r\n| p/Gopher Cannon/ o/Windows/ h/$1/ cpe:/o:microsoft:windows/
+match gopher m|^Error: File or directory not found!\r\n______________________________________________________________________\r\n              Gophered by Gophernicus/([\w._-]+) on archlinux/rolling | p/Gophernicus/ v/$1/ o/Linux/ cpe:/o:archlinux:arch_linux/ cpe:/o:linux:linux_kernel/
+match gopher m|^iWelcome to Gophernicus!\t.*server version\.: Gophernicus/([\w._-]+)\t|s p/Gophernicus gopherd/ v/$1/
+match gopher m|^HTTP/1\.1 400 Bad request\r\nContent-Type: text/html; charset=UTF-8\r\nServer: Motsognir\r\n.*<a href='gopher://([^/]+)/'|s p/Motsognir gopherd/ h/$1/ cpe:/a:mateusz_viste:motsognir/
+match gopher-proxy m|^3That item is not currently available\.\r\n$| p/Symantec gopher proxy/
 
-match xboxdebug m|^201- connected\r\n407- unknown command\r\n$| p/Microsoft XBox Debugging Kit/ d/game console/
-match xns m|^HELLO XBOX!$| p/Relax XBOX file server/ d/game console/
+# GoverLan Remote Admin/Control (Tom Sellers)
+match goverlan m|^\0\0\0\0/\x20HT| p/Goverlan Remote Administration/ cpe:/a:pjtech:goverlan/
 
-match zabbix m|^ZBXD\x01.\0\0\0\0\0\0\0ZBX_NOTSUPPORTED|s p/Zabbix Monitoring System/ cpe:/a:zabbix:zabbix/
+match gpsd m|^GPSD,G=\?,E=\?,T=\?,T=\?,T=\?,P=\?\r\n| p/gpsd/ cpe:/a:gpsd_project:gpsd/
+match gpsd-ng m|^{\"class\":\"VERSION\",\"release\":\"([\w._-]+)\",\"rev\":\"([\w._:-]+)\",\"proto_major\":\d+,\"proto_minor\":\d+}\r\n$| p/GPSD-NG/ v/$1 rev $2/
 
-match zmodem m|^\*\*\x18B0100000023be50\r\x8a\x11$| p/ZMODEM/
+match groupwise m|^\xbc\xef\x16\0\xb5\xfe\x14\0\0\0\0 \xb5x3\x06a\x05\0\0\x16\0\xbc\xef\x1a\0\xb5\xfe\x18\0\0\0\0 d\xcf2\n\0\0\0\0\0\0\0\0\x1a\0\xbc\xef\x14\0\xb5\xfe\x0e\0\x02\0\x02!\x03\x16\x7f\$r\xe7\x14\0$| p/Novell GroupWise/ cpe:/a:novell:groupwise/
 
-# Know the device, but not the service.
-# Port 2000.
-# match unknown m|^\x20$| p/Samsung CLX-3175FW printer/ d/printer/
+# Not sure what all of this means, but the first 10 bytes could be error #4, DEADLINE_EXCEEDED
+match grpc m|^\0\0\x18\x04\0\0\0\0\0\0\x04\0\x3f\xff\xff\0\x05\0\x3f\xff\xff\0\x06\0\0 \0\xfe\x03\0\0\0\x01\0\0\x04\x08\0\0\0\0\0\0\x3f\0\x00|
+match grpc m|^\0\0\x18\x04\0\0\0\0\0\0\x04\0\x40\x00\x00\0\x05\0\x40\x00\x00\0\x06\0\0 \0\xfe\x03\0\0\0\x01\0\0\x04\x08\0\0\0\0\0\0\x3f\0\x01|
 
+match h2 m|^\0\0\0\0\0\0\0\x05\x009\x000\x000\x004\x007\0\0\0[A-B]\0V\0e\0r\0s\0i\0o\0n\0 \0m\0i\0s\0m\0a\0t\0c\0h\0,\0 \0d\0r\0i\0v\0e\0r\0 \0v\0e\0r\0s\0i\0o\0n\0 \0i\0s\0 \0"\x000\0"\0 \0b\0u\0t\0 \0s\0e\0r\0v\0e\0r\0 \0v\0e\0r\0s\0i\0o\0n\0 \0i\0s\0 \0"([\d\0]+)"\xff\xff\xff\xff| p/H2 database/ i/TCP protocol version $P(1)/ cpe:/a:h2database:h2/
+match hadoop-ipc m|^\0\0\0\0\x03\0\0\0\x7c\xff\xff\xff\xff\0\0\0\)org\.apache\.hadoop\.ipc\.RPC\$VersionMismatch\0\0\0>Server IPC version (\d+) cannot communicate with client version 47| p/Hadoop IPC/ i/IPC version $1/ cpe:/a:apache:hadoop/
+match hadoop-ipc m|^\0\0\0\x7c{\x08\xff\xff\xff\xff\x0f\x10\x02\x18\t\"\)org\.apache\.hadoop\.ipc\.RPC\$VersionMismatch\*>Server IPC version (\d+) cannot communicate with client version \d+\x0e:\0@\x01| p/Hadoop IPC/ i/IPC version $1/ cpe:/a:apache:hadoop/
+match hadoop-ipc m|^HTTP/1\.1 404 Not Found\r\nContent-type: text/plain\r\n\r\nIt looks like you are making an HTTP request to a Hadoop IPC port\. This is not the correct port for the web interface on this daemon\.\r\n| p/Hadoop IPC/ cpe:/a:apache:hadoop/
 
-##############################NEXT PROBE##############################
-Probe TCP GetRequest q|GET / HTTP/1.0\r\n\r\n|
-rarity 1
-ports 1,70,79,80-85,88,113,139,143,280,497,505,514,515,540,554,591,620,631,783,888,898,900,901,1026,1080,1042,1214,1220,1234,1314,1344,1503,1610,1611,1830,1900,2001,2002,2030,2064,2160,2306,2396,2525,2715,2869,3000,3002,3052,3128,3280,3372,3531,3689,3872,4000,4444,4567,4660,4711,5000,5001,5427,5060,5222,5269,5280,5432,5800-5803,5900,5985,6103,6346,6544,6600,6699,6969,7002,7007,7070,7100,7402,7776,8000-8010,8080-8085,8088,8118,8181,8530,8880-8888,9000,9001,9030,9050,9080,9090,9999,10000,10001,10005,11371,13013,13666,13722,14534,15000,17988,18264,31337,40193,50000,55555
-sslports 443,993,995,1311,1443,3443,4443,5061,5986,7443,8443,8531,9443,10443,14443,44443,60443
+# Responds with a binary protocol for other probes (GenericLines and RPCCheck).
+match hillstone-vpn m|^HTTP/1\.1 301 Moved Permanently\r\nLocation: /login\.html\r\nContent-Length: 157\r\nContent-Type: text/html\r\n\r\n<html><head><title>301 Moved Permanently</title></head><body>\n<h1>Moved Permanently</h1>\nMoved to: <a href=\"/login\.html\">/login\.html</a>\n<hr>\n</body></html>\n$| p/Hillstone SSL VPN/
 
-match adobe-crossdomain m|^<\?xml version=\"1\.0\"\?>\r\n<!DOCTYPE cross-domain-policy SYSTEM \"/xml/dtds/cross-domain-policy\.dtd\">\r\n<cross-domain-policy>\r\n    <!-- This is a master socket policy file -->\r\n    <!-- No other socket policies on the host will be permitted -->\r\n    <site-control permitted-cross-domain-policies=\"master-only\"/>\r\n    <!-- This will allow access to port 1800 -->\r\n    <allow-access-from domain=\"([^\"]*)\" to-ports=\"([^\"]*)\"/>\r\n</cross-domain-policy>\r\n| p/Adobe cross-domain policy/ i/Snom 870 VoIP phone; domain: $1; ports: $2/ d/VoIP phone/ cpe:/h:snom:870/
-
-match ajp13 m|^AB\0\x13\x04\x01\x90\0\x0bBad Request\0\0\0AB\0\x02\x05\x01$| p/Apache Jserv/
-
-match athinfod m|^athinfod: invalid query\.\n$| p/Athena athinfod/
+match hp-logic-analyzer m|^\r\n\r0\.1/PTTH / TEG.\r\n$| p/HP 1662C logic analyzer/ d/specialized/
